@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<udm.DeploymentPackage application="NerdDinner" version="2.0">
+  <applicationDependencies />
+  <deployables>
+    <iis.ApplicationPoolSpec name="NerdDinner-applicationPool">
+      <managedRuntimeVersion>v4.0</managedRuntimeVersion>
+    </iis.ApplicationPoolSpec>
+    <iis.WebContent name="NerdDinner-files" file="NerdDinner-Files">
+      <targetPath>C:\inetpub\nerddinner</targetPath>
+    </iis.WebContent>
+    <iis.WebsiteSpec name="NerdDinner-website">
+      <websiteName>NerdDinner</websiteName>
+      <physicalPath>C:\inetpub\nerddinner</physicalPath>
+      <applicationPoolName>NerdDinner-applicationPool</applicationPoolName>
+      <bindings>
+        <iis.WebsiteBindingSpec name="NerdDinner-website/88">
+          <port>8080</port>
+        </iis.WebsiteBindingSpec>
+      </bindings>
+    </iis.WebsiteSpec>
+  </deployables>
+</udm.DeploymentPackage>

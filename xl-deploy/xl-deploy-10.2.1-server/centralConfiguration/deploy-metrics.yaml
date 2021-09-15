@@ -1,0 +1,7 @@
+deploy.metrics:
+  enabled: false
+  instance-name: "XLD"
+  path: "metrics"
+  date-format: "yyyyMMdd"
+  max-file-count: 7
+  report-interval-secs: 10

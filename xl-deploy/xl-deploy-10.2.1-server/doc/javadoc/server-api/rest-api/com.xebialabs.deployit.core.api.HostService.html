@@ -1,0 +1,239 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>HostService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>HostService</h1>
+</div>
+<p>Retrieves information about Hosts: which DeployedApplications have deployeds on this host, and which environments does this
+ host take part in?
+
+ The user must have READ access to the specified host.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/host/deployed-applications/{ID:.+}:GET">/host/deployed-applications/{ID:.+}</a>
+</td>
+<td>Find deployedApplications that have deployeds on the specified host.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/host/{id:.+}/environments:GET">/host/{id:.+}/environments</a>
+</td>
+<td>Gets all environments that the specified host is part of, including when and by whom this environment was last deployed to.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/host/{id:.+}/environments/count:GET">/host/{id:.+}/environments/count</a>
+</td>
+<td>Count the number of environments that the user has READ access to and the specified host is part of, optionally filtered by
+ (part of) the environment name</td>
+</tr>
+</table>
+<hr/>
+<a id="/host/deployed-applications/{ID:.+}:GET"></a>
+<h2 class="resource-header">
+GET /host/deployed-applications/{ID:.+}</h2>
+<p></p>
+<div>Find deployedApplications that have deployeds on the specified host.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the host ID</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedAppName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (Part of) the deployedApplication's to look for</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td></td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>How many results to display per page, and which page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>How to order the search results.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+ - A list of <a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId.html">com.xebialabs.deployit.engine.api.dto.ConfigurationItemId</a>
+ objects corresponding to the
+ deployedApplications</dd>
+<dd>Content type: </dd>
+</dl>
+<a id="/host/{id:.+}/environments:GET"></a>
+<h2 class="resource-header">
+GET /host/{id:.+}/environments</h2>
+<p></p>
+<div>Gets all environments that the specified host is part of, including when and by whom this environment was last deployed to.
+ Lists only environments that the user has READ permission for.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The host ID to query for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>name</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the name of the environment(s) to look for</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td></td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>How many results to display per page, and which page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>How to order the search results.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of DeploymentInfo - a list of <b>com.xebialabs.deployit.engine.api.dto.DeploymentInfo</b>
+ objects</dd>
+<dd>Content type: </dd>
+</dl>
+<a id="/host/{id:.+}/environments/count:GET"></a>
+<h2 class="resource-header">
+GET /host/{id:.+}/environments/count</h2>
+<p></p>
+<div>Count the number of environments that the user has READ access to and the specified host is part of, optionally filtered by
+ (part of) the environment name</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The host ID to query</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>name</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the environment name(s) to look for.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.Integer.html">Integer</a>
+ - The number of environments that this host is part of</dd>
+<dd>Content type: </dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

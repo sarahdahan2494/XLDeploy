@@ -1,0 +1,153 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>ControlService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>ControlService</h1>
+</div>
+<p>Provides access to control methods defined on CIs.</p>
+<table class="parameter-table">
+<tr>
+<td>POST</td>
+<td>
+<a href="#/control/:POST">/control/</a>
+</td>
+<td>Creates the control task</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/control/prepare/{controlName}/{id:.+}:GET">/control/prepare/{controlName}/{id:.+}</a>
+</td>
+<td>Returns a parameter object for the task that will execute the control task method.</td>
+</tr>
+</table>
+<hr/>
+<a id="/control/:POST"></a>
+<h2 class="resource-header">
+POST /control/</h2>
+<p></p>
+<div>Creates the control task for the object returned by invoking <code>/control/prepare</code>.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>controltask#execute</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Control.html">Control</a>
+</td>
+<td>the Control parameter object.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - a reference to a Task ID that can be executed by the <a href="com.xebialabs.deployit.engine.api.TaskService.html">TaskService</a>
+.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/control/prepare/{controlName}/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /control/prepare/{controlName}/{id:.+}</h2>
+<p></p>
+<div>Returns a parameter object for the task that will execute the control task method. The returned object can be used in the call to <code>/control</code>.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>controltask#execute</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>controlName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The name of the control method to execute.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the CI to execute the control method on</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Control.html">Control</a>
+ - a Control parameter object.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

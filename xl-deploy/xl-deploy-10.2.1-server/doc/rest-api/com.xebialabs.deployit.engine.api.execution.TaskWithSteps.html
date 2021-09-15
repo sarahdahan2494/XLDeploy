@@ -1,0 +1,83 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.engine.api.execution.TaskWithSteps</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>TaskWithSteps</h1>
+<p>
+This is an enhanced version of the <a href="com.xebialabs.deployit.engine.api.execution.TaskState.html"><code>&lt;task></code></a> element. In addition of the properties defined 
+by <a href="com.xebialabs.deployit.engine.api.execution.TaskState.html"><code>&lt;task></code></a>, all step information is included.
+</p>
+<p>
+Steps are nested as <a href="com.xebialabs.deployit.engine.api.execution.StepState.html"><code>&lt;step></code></a> elements in a <code>&lt;steps></code> container element. 
+</p>
+
+<h2>Example</h2>
+<pre>
+&lt;task id="f9e864f9-cf07-44b6-93d8-f526515f87fa" currentStep="0" totalSteps="2" failures="0" state="PENDING">
+  &lt;steps>
+    &lt;step failures="0" state="PENDING">
+      &lt;description>Create Step (# 0)&lt;/description>
+      &lt;startDate>Wed, 20 Jun 12 12:15:09 CEST&lt;/startDate>
+      &lt;completionDate>Wed, 20 Jun 12 12:15:09 CEST&lt;/completionDate>
+      &lt;log>
+        Connecting to server...
+      &lt;/log>
+    &lt;/step>
+    &lt;step ...>...&lt;/step>
+  &lt;/steps>
+&lt;/task>
+</pre>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

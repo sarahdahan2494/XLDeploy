@@ -1,0 +1,10 @@
+com.xebialabs.deployit.engine.spi.artifact.resolution
+com.xebialabs.deployit.engine.spi.command
+com.xebialabs.deployit.engine.spi.command.util
+com.xebialabs.deployit.engine.spi.event
+com.xebialabs.deployit.engine.spi.execution
+com.xebialabs.deployit.engine.spi.orchestration
+com.xebialabs.deployit.engine.spi.services
+com.xebialabs.deployit.server.api.importer
+com.xebialabs.deployit.server.api.upgrade
+com.xebialabs.deployit.server.api.util

@@ -1,0 +1,539 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>PermissionService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>PermissionService</h1>
+</div>
+<p>Manages permissions in XL Deploy.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/check/{permission}:GET">/security/check/{permission}</a>
+</td>
+<td>Checks if the currently logged in user has a certain permission on a CI.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/check/{permission}/{id:.+}:GET">/security/check/{permission}/{id:.+}</a>
+</td>
+<td>Checks if the currently logged in user has a certain permission on a CI.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/granted-permissions:GET">/security/granted-permissions</a>
+</td>
+<td>Gets all the permissions granted to the logged in user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/granted-permissions/{role}:GET">/security/granted-permissions/{role}</a>
+</td>
+<td>Gets all the permissions granted to a role.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/permission/{permission}/{role}:GET">/security/permission/{permission}/{role}</a>
+</td>
+<td>Checks if a permission is granted to a role on a CI.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/security/permission/{permission}/{role}:PUT">/security/permission/{permission}/{role}</a>
+</td>
+<td>Grants a permission to a role on a CI.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/security/permission/{permission}/{role}:DELETE">/security/permission/{permission}/{role}</a>
+</td>
+<td>Revokes the permission of a role on a CI.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/security/permission/{permission}/{role}/{id:.*}:PUT">/security/permission/{permission}/{role}/{id:.*}</a>
+</td>
+<td>Grants a permission to a role on a CI.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/permission/{permission}/{role}/{id:.+}:GET">/security/permission/{permission}/{role}/{id:.+}</a>
+</td>
+<td>Checks if a permission is granted to a role on a CI.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/security/permission/{permission}/{role}/{id:.+}:DELETE">/security/permission/{permission}/{role}/{id:.+}</a>
+</td>
+<td>Revokes the permission of a role on a CI.</td>
+</tr>
+</table>
+<hr/>
+<a id="/security/check/{permission}:GET"></a>
+<h2 class="resource-header">
+GET /security/check/{permission}</h2>
+<p></p>
+<div>Checks if the currently logged in user has a certain permission on a CI.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to check.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="boolean.html">boolean</a>
+ - <code>true</code>
+ if the user has this permission; <code>false</code>
+ otherwise.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/check/{permission}/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /security/check/{permission}/{id:.+}</h2>
+<p></p>
+<div>Checks if the currently logged in user has a certain permission on a CI.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to check.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the path of the CI to check the permission on.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="boolean.html">boolean</a>
+ - <code>true</code>
+ if the user has this permission; <code>false</code>
+ otherwise.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/granted-permissions:GET"></a>
+<h2 class="resource-header">
+GET /security/granted-permissions</h2>
+<p></p>
+<div>Gets all the permissions granted to the logged in user.</div>
+<dl>
+<dt>Response body</dt>
+<dd>Map of String, Collection - a Map of configuration item ids to permissions granted the currently logged in user.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/granted-permissions/{role}:GET"></a>
+<h2 class="resource-header">
+GET /security/granted-permissions/{role}</h2>
+<p></p>
+<div>Gets all the permissions granted to a role.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role to get the permissions for.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Map of String, Collection - a Map of configuration item ids to permissions granted to the user.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/permission/{permission}/{role}:GET"></a>
+<h2 class="resource-header">
+GET /security/permission/{permission}/{role}</h2>
+<p></p>
+<div>Checks if a permission is granted to a role on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to check.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role to which the permission should be granted.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="boolean.html">boolean</a>
+ - <code>true</code>
+ if granted.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/permission/{permission}/{role}:PUT"></a>
+<h2 class="resource-header">
+PUT /security/permission/{permission}/{role}</h2>
+<p></p>
+<div>Grants a permission to a role on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to grant.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role to which the permission should be granted.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/permission/{permission}/{role}:DELETE"></a>
+<h2 class="resource-header">
+DELETE /security/permission/{permission}/{role}</h2>
+<p></p>
+<div>Revokes the permission of a role on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to revoke.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role from which the permission should be revoked.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/permission/{permission}/{role}/{id:.*}:PUT"></a>
+<h2 class="resource-header">
+PUT /security/permission/{permission}/{role}/{id:.*}</h2>
+<p></p>
+<div>Grants a permission to a role on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to grant.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the path of the CI to grant the permission on.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role to which the permission should be granted.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/permission/{permission}/{role}/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /security/permission/{permission}/{role}/{id:.+}</h2>
+<p></p>
+<div>Checks if a permission is granted to a role on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to check.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the path of the CI to check the permission on.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role to which the permission should be granted.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="boolean.html">boolean</a>
+ - <code>true</code>
+ if granted.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/permission/{permission}/{role}/{id:.+}:DELETE"></a>
+<h2 class="resource-header">
+DELETE /security/permission/{permission}/{role}/{id:.+}</h2>
+<p></p>
+<div>Revokes the permission of a role on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>permission</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the permission to revoke.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the path of the CI to revoke the permission from.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role from which the permission should be revoked.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+This library is the exclusive property of XebiaLabs B.V. and its affiliates ("XebiaLabs").
+
+You may use this library for the limited purpose of communicating with XebiaLabs' software products.
+To the extent permitted by law, you agree not to: copy, lease, rent, distribute, resell, sublicense,
+create any derivative works, reverse engineer, decompile or disassemble this library, or use this
+library's source code or protocols. XebiaLabs retains all rights not expressly granted hereunder.
+You will preserve all of XebiaLabs' copyright and legal notices on this library. You may not use the
+XebiaLabs trademarks, logo's, and/or trade name without the express prior written consent of XebiaLabs.
+
+THIS LIBRARY IS PROVIDED "AS IS" WITHOUT ANY IMPLIED OR EXPRESS WARRANTY,
+INCLUDING WITHOUT LIMITATION ANY WARRANTY OF FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABILITY, OR NON-INFRINGEMENT. XEBIALABS' LIABILITY FOR DIRECT DAMAGES
+RESULTING FROM USE OR OTHERWISE RELATED TO THIS LIBRARY, AND REGARDLESS WHETHER
+THE CLAIM FOR SUCH DAMAGES IS BASED IN CONTRACT, TORT, STRICT LIABILITY,
+OR OTHERWISE, IS LIMITED TO A TOTAL MAXIMUM AMOUNT OF $100 USD. IN NO EVENT
+IS XEBIALABS LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, OR CONSEQUENTIAL
+DAMAGES, LOST DATA, LOST PROFITS, EVEN IF XEBIALABS HAS BEEN ADVISED ON THE POSSIBILITY
+OF SUCH DAMAGES.

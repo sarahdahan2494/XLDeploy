@@ -1,0 +1,9 @@
+com.xebialabs.deployit.core.api.resteasy
+com.xebialabs.deployit.engine.api
+com.xebialabs.deployit.engine.api.dto
+com.xebialabs.deployit.engine.api.dto.report
+com.xebialabs.deployit.engine.api.execution
+com.xebialabs.deployit.engine.api.security
+com.xebialabs.deployit.engine.api.task
+com.xebialabs.deployit.engine.api.xml
+com.xebialabs.xlplatform.security.dto

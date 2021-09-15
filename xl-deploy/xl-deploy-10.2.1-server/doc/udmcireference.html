@@ -1,0 +1,4215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="icon" type="image/ico" href="https://docs.collab.net/images/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>UDM CI Reference 10.2.x</title>
+<meta property="og:title" content="UDM CI Reference 10.2.x" />
+<meta name="description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<meta property="og:description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<meta property="og:site_name" content="Digital.ai documentation" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@xebialabs" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "headline": "UDM CI Reference 10.2.x",
+    "description": "Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.",
+    "logo": "https://docs.xebialabs.com/images/logos/xebialabs-standard.png"
+  }
+</script>
+
+<link type="text/css" rel="stylesheet" media="all" href="layout.css" />
+<link type="text/css" rel="stylesheet" media="all" href="ci-reference-api.css" />
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.tableofcontents.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("ol#toc").tableOfContents("body", { topLinks: false, startLevel: 1 });
+
+        //remove the toc if it is empty
+        if($("ol#toc").text().replace(/\n/g, '') == ''){
+            $("ol#toc").remove();
+        }
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32396304-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+    <div id="Main_container"><!--main container start here-->
+
+        <div id="header"><!--header start here-->
+           	<div class="cleardiv"></div>
+
+            <div id="menubar"><!--Navigation start here-->
+           	    <span class="logo">
+                    <a href="/">
+                        <img src="https://docs.xebialabs.com/static/logo-93f4fb56dc9f6018c2cc5109b7866daf.svg" alt="Digital.ai" height="50" border="0" />
+                    </a>
+                </span>
+           	    <div class="clear-block block block-nice_menus firstlast" id="block-nice_menus-1"></div>
+            </div>
+
+        </div>  <!--header ends here-->
+
+        <div class="cleardiv"></div>
+
+        <div id="main_white_bg" ><!-- main content start -->
+            <!-- <div id="breadcrumb">
+                <ul>
+                    <li><a href="/index.html">Product Docs</a></li>
+                    <li>&nbsp;&gt;&nbsp;</li>
+                    <li><a href="javascript:void(0)" class="active">UDM CI Reference 10.2.x</a></li>
+                </ul>
+            </div> -->
+
+
+            <div id="product-doc-height">
+                <h1>UDM CI Reference 10.2.x</h1>
+            </div>
+
+            <div class="toccol"><!--right column start here-->
+                <ol id="toc"></ol>
+            </div><!--right column ends here-->
+
+            <div class="leftcol"><!--left column start here-->
+                <div id="start-listing">
+                    <div class="ci-reference">
+    <h2 class="ci-toc-category">CI Reference</h2>
+    <h3 class="ci-details-title">Configuration Item Overview</h3>
+<h4 class="ci-toc-category">Deployables</h4>
+    <table class="ci-toc">
+        <tr class="odd ci-toc-header">
+            <th>CI</th><th>Description</th>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseDeployable" class="virtual-type">udm.BaseDeployable</a></td>
+            <td>The supertype of all Deployables.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseDeployableArchiveArtifact" class="virtual-type">udm.BaseDeployableArchiveArtifact</a></td>
+            <td>An archive artifact that can be deployed</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseDeployableArtifact" class="virtual-type">udm.BaseDeployableArtifact</a></td>
+            <td>The supertype of all DeployableArtifacts.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseDeployableContainer" class="virtual-type">udm.BaseDeployableContainer</a></td>
+            <td>The base supertype for a deployable container.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseDeployableFileArtifact" class="virtual-type">udm.BaseDeployableFileArtifact</a></td>
+            <td>A file artifact that can be deployed</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseDeployableFolderArtifact" class="virtual-type">udm.BaseDeployableFolderArtifact</a></td>
+            <td>A folder artifact that can be deployed</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseProvisionable" class="virtual-type">udm.BaseProvisionable</a></td>
+            <td>Base type for all provisionables.</td>
+        </tr>
+        
+    </table>    
+<h4 class="ci-toc-category">Deployeds</h4>
+    <table class="ci-toc">
+        <tr class="odd ci-toc-header">
+            <th>CI</th><th>Description</th>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseDeployed" class="virtual-type">udm.BaseDeployed</a></td>
+            <td>The supertype of all Deployeds.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseDeployedArtifact" class="virtual-type">udm.BaseDeployedArtifact</a></td>
+            <td>The supertype of all DeployedArtifacts.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseDeployedContainer" class="virtual-type">udm.BaseDeployedContainer</a></td>
+            <td>Base type for all deployeds that are containers.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseDeployedInfrastructureAsCode" class="virtual-type">udm.BaseDeployedInfrastructureAsCode</a></td>
+            <td>The supertype for infrastructure as code deployeds with output variables.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseProvisioned" class="virtual-type">udm.BaseProvisioned</a></td>
+            <td>Base type for all provisioneds.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseProvisionedContainer" class="virtual-type">udm.BaseProvisionedContainer</a></td>
+            <td>Base type for all provisioneds that are containers.</td>
+        </tr>
+        
+    </table>    
+<h4 class="ci-toc-category">Containers</h4>
+    <table class="ci-toc">
+        <tr class="odd ci-toc-header">
+            <th>CI</th><th>Description</th>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseContainer" class="virtual-type">udm.BaseContainer</a></td>
+            <td>The supertype of all Containers.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseDeployableContainer" class="virtual-type">udm.BaseDeployableContainer</a></td>
+            <td>The base supertype for a deployable container.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseDeployedContainer" class="virtual-type">udm.BaseDeployedContainer</a></td>
+            <td>Base type for all deployeds that are containers.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseProvisionedContainer" class="virtual-type">udm.BaseProvisionedContainer</a></td>
+            <td>Base type for all provisioneds that are containers.</td>
+        </tr>
+        
+    </table>    
+<h4 class="ci-toc-category">Other Configuration Items</h4>
+    <table class="ci-toc">
+        <tr class="odd ci-toc-header">
+            <th>CI</th><th>Description</th>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.AbstractDictionary" class="virtual-type">udm.AbstractDictionary</a></td>
+            <td>Default implementation of a CI that provides ID, name and type information.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.Application">udm.Application</a></td>
+            <td>An application. Each version of the application is a separate package.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseAppliedProvisioner" class="virtual-type">udm.BaseAppliedProvisioner</a></td>
+            <td>Description unavailable</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseAppliedProvisionerArtifact" class="virtual-type">udm.BaseAppliedProvisionerArtifact</a></td>
+            <td>Description unavailable</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseConfigurationItem" class="virtual-type">udm.BaseConfigurationItem</a></td>
+            <td>Default implementation of a CI that provides ID, name and type information.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseConfigurationItemWithPolicies" class="virtual-type">udm.BaseConfigurationItemWithPolicies</a></td>
+            <td>Implementation of a Base CI that provides on success policy.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseEmbeddedDeployable" class="virtual-type">udm.BaseEmbeddedDeployable</a></td>
+            <td>The supertype of all EmbeddedDeployables.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseEmbeddedDeployed" class="virtual-type">udm.BaseEmbeddedDeployed</a></td>
+            <td>The supertype of all EmbeddedDeployeds.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.BaseProvisioner" class="virtual-type">udm.BaseProvisioner</a></td>
+            <td>Base type for all provisioners.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.BaseProvisionerArtifact" class="virtual-type">udm.BaseProvisionerArtifact</a></td>
+            <td>Base type for all provisioners artifacts.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.CompositePackage">udm.CompositePackage</a></td>
+            <td>(Deprecated) A container of DeploymentPackages that is a DeploymentPackage itself. </td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.Configuration" class="virtual-type">udm.Configuration</a></td>
+            <td>Contains deployment configuration information</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.DeployedApplication">udm.DeployedApplication</a></td>
+            <td>A deployment of an application package or a deployable artifact to a middleware CI or an environment.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.DeploymentPackage">udm.DeploymentPackage</a></td>
+            <td>A package of a certain version of an application. Groups all deployable artifact CIs for an application for a certain version. Is contained by the Application CI.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.Dictionary">udm.Dictionary</a></td>
+            <td>A Dictionary contains key-value pairs that can be replaced</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.EmbeddedDeployableArtifact" class="virtual-type">udm.EmbeddedDeployableArtifact</a></td>
+            <td>Description unavailable</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.EmbeddedDeployedArtifact" class="virtual-type">udm.EmbeddedDeployedArtifact</a></td>
+            <td>Description unavailable</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.EncryptedDictionary">udm.EncryptedDictionary</a></td>
+            <td>An EncryptedDictionary contains keys and encrypted values that can be replaced. Values are encrypted when they are stored and decrypted before being used.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.Environment">udm.Environment</a></td>
+            <td>Groups infrastructure CIs and dictionaries and serves as a target for deployment.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.Parameters">udm.Parameters</a></td>
+            <td>Default implementation of a CI that provides ID, name and type information.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.ProvisioningPackage">udm.ProvisioningPackage</a></td>
+            <td>A package of a certain version of an application. Groups all provisionable artifact CIs for an application for a certain version. Is contained by the Application CI.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#udm.Template" class="virtual-type">udm.Template</a></td>
+            <td>Base type for all generated template CIs.</td>
+        </tr>
+        <tr class="even">
+            <td><a href="#udm.Version" class="virtual-type">udm.Version</a></td>
+            <td>A version of an application .</td>
+        </tr>
+        
+    </table>    
+    <h3 class="ci-details-title">Configuration Item Details</h3>
+    <a id="udm.AbstractDictionary"></a>
+    <h4 class="ci-detail-title">udm.AbstractDictionary</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.IDictionary
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Default implementation of a CI that provides ID, name and type information.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">restrictToApplications</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Application">udm.Application</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Only apply this dictionary to the applications mentioned</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">restrictToContainers</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Only apply this dictionary to the containers mentioned</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.Application"></a>
+    <h4 class="ci-detail-title">udm.Application</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        
+    </table>
+    <p class="ci-description">An application. Each version of the application is a separate package.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">lastVersion</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The latest application version number as the highest udm.Version name sorted in lexicographical ordering.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.BaseAppliedProvisioner"></a>
+    <h4 class="ci-detail-title">udm.BaseAppliedProvisioner</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseEmbeddedDeployed">udm.BaseEmbeddedDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.AppliedProvisioner, udm.EmbeddedDeployed, udm.EmbeddedDeployedContainer
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Description unavailable</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployedContainer&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The (embedded) deployed which contains this embedded deployed.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The embedded deployable that this embedded deployed is derived from.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.BaseAppliedProvisionerArtifact"></a>
+    <h4 class="ci-detail-title">udm.BaseAppliedProvisionerArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.EmbeddedDeployedArtifact">udm.EmbeddedDeployedArtifact</a> &gt;&gt; <a href="#udm.BaseEmbeddedDeployed">udm.BaseEmbeddedDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.AppliedProvisioner, udm.Artifact, udm.DerivedArtifact, udm.EmbeddedDeployed, udm.EmbeddedDeployedContainer
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Description unavailable</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployedContainer&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The (embedded) deployed which contains this embedded deployed.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The embedded deployable that this embedded deployed is derived from.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A Map containing all the placeholders mapped to their values. Special values are &lt;ignore&gt; or &lt;empty&gt;</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.BaseConfigurationItem"></a>
+    <h4 class="ci-detail-title">udm.BaseConfigurationItem</h4>
+    <a id="udm.BaseConfigurationItemWithPolicies"></a>
+    <h4 class="ci-detail-title">udm.BaseConfigurationItemWithPolicies</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+    </table>
+    <p class="ci-description">Implementation of a Base CI that provides on success policy.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">onFailurePolicy</span><span>: </span><span class="ci-property-kind">ENUM [NOOP, CANCEL_AND_ARCHIVE]</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Process failed tasks on CI according to the defined policy.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">onSuccessPolicy</span><span>: </span><span class="ci-property-kind">ENUM [NOOP, ARCHIVE]</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Process successful tasks on CI according to the defined policy.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.BaseContainer"></a>
+    <h4 class="ci-detail-title">udm.BaseContainer</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Container, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype of all Containers.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, only deployables with the same tag will be automatically mapped to this container.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.BaseDeployable"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployable</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Deployable, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype of all Deployables.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, this deployable will only be mapped automatically to containers with the same tag.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployableArchiveArtifact"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployableArchiveArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployableFileArtifact">udm.BaseDeployableFileArtifact</a> &gt;&gt; <a href="#udm.BaseDeployableArtifact">udm.BaseDeployableArtifact</a> &gt;&gt; <a href="#udm.BaseDeployable">udm.BaseDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.ArchiveArtifact, udm.Artifact, udm.Deployable, udm.DeployableArtifact, udm.FileArtifact, udm.SourceArtifact, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">An archive artifact that can be deployed</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">checksum</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The checksum used to detect differences on the artifact. If not provided, it will be calculated by XL Deploy.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">credentials</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.Credentials&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials of the URI.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">excludeFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names that must be excluded from scanning</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileEncodings</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{ .+\.properties=ISO-8859-1 }</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A map that maps regular expressions matching the full path of file(s) in the artifact to character set encodings</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileUri</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The URI pointing to the (remote) location of the file this artifact represents</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">isRescanned</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Indicates if the artifact has been rescanned</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Placeholders detected in this artifact</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">preScannedPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether this artifact has been pre-scanned by the packager (ie. scanned for placeholders and checksum is set)</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">proxySettings</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.ProxySettings&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Proxy Settings for artifact location</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">scanPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to scan this artifact to replace placeholders when it is imported</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, this deployable will only be mapped automatically to containers with the same tag.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">textFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">.+\.(cfg | conf | config | ini | properties | props | txt | asp | aspx | htm | html | jsf | jsp | xht | xhtml | sql | xml | xsd | xsl | xslt)</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names of text files</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">delimiters</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{{ }}</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The delimiters used indicate placeholders, defaults to '{{ }}'. This is a 5 character string with a space in the middle, the first two are the leading delimiter, the last two are the closing delimiter</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployableArtifact"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployableArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployable">udm.BaseDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.Deployable, udm.DeployableArtifact, udm.SourceArtifact, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype of all DeployableArtifacts.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">checksum</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The checksum used to detect differences on the artifact. If not provided, it will be calculated by XL Deploy.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">credentials</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.Credentials&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials of the URI.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">excludeFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names that must be excluded from scanning</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileEncodings</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{ .+\.properties=ISO-8859-1 }</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A map that maps regular expressions matching the full path of file(s) in the artifact to character set encodings</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileUri</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The URI pointing to the (remote) location of the file this artifact represents</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">isRescanned</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Indicates if the artifact has been rescanned</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Placeholders detected in this artifact</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">preScannedPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether this artifact has been pre-scanned by the packager (ie. scanned for placeholders and checksum is set)</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">proxySettings</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.ProxySettings&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Proxy Settings for artifact location</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">scanPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to scan this artifact to replace placeholders when it is imported</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, this deployable will only be mapped automatically to containers with the same tag.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">textFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">.+\.(cfg | conf | config | ini | properties | props | txt | asp | aspx | htm | html | jsf | jsp | xht | xhtml | sql | xml | xsd | xsl | xslt)</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names of text files</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">delimiters</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{{ }}</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The delimiters used indicate placeholders, defaults to '{{ }}'. This is a 5 character string with a space in the middle, the first two are the leading delimiter, the last two are the closing delimiter</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployableContainer"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployableContainer</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployable">udm.BaseDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Container, udm.Deployable, udm.DeployableContainer, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The base supertype for a deployable container.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">containerTags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The tags to copy to the Deployed Container</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, this deployable will only be mapped automatically to containers with the same tag.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployableFileArtifact"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployableFileArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployableArtifact">udm.BaseDeployableArtifact</a> &gt;&gt; <a href="#udm.BaseDeployable">udm.BaseDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.Deployable, udm.DeployableArtifact, udm.FileArtifact, udm.SourceArtifact, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">A file artifact that can be deployed</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">checksum</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The checksum used to detect differences on the artifact. If not provided, it will be calculated by XL Deploy.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">credentials</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.Credentials&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials of the URI.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">excludeFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names that must be excluded from scanning</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileEncodings</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{ .+\.properties=ISO-8859-1 }</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A map that maps regular expressions matching the full path of file(s) in the artifact to character set encodings</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileUri</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The URI pointing to the (remote) location of the file this artifact represents</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">isRescanned</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Indicates if the artifact has been rescanned</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Placeholders detected in this artifact</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">preScannedPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether this artifact has been pre-scanned by the packager (ie. scanned for placeholders and checksum is set)</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">proxySettings</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.ProxySettings&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Proxy Settings for artifact location</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">scanPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to scan this artifact to replace placeholders when it is imported</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, this deployable will only be mapped automatically to containers with the same tag.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">textFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">.+\.(cfg | conf | config | ini | properties | props | txt | asp | aspx | htm | html | jsf | jsp | xht | xhtml | sql | xml | xsd | xsl | xslt)</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names of text files</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">delimiters</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{{ }}</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The delimiters used indicate placeholders, defaults to '{{ }}'. This is a 5 character string with a space in the middle, the first two are the leading delimiter, the last two are the closing delimiter</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployableFolderArtifact"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployableFolderArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployableArtifact">udm.BaseDeployableArtifact</a> &gt;&gt; <a href="#udm.BaseDeployable">udm.BaseDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.Deployable, udm.DeployableArtifact, udm.FolderArtifact, udm.SourceArtifact, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">A folder artifact that can be deployed</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">checksum</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The checksum used to detect differences on the artifact. If not provided, it will be calculated by XL Deploy.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">credentials</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.Credentials&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials of the URI.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">excludeFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names that must be excluded from scanning</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileEncodings</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{ .+\.properties=ISO-8859-1 }</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A map that maps regular expressions matching the full path of file(s) in the artifact to character set encodings</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileUri</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The URI pointing to the (remote) location of the file this artifact represents</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">isRescanned</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Indicates if the artifact has been rescanned</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Placeholders detected in this artifact</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">preScannedPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether this artifact has been pre-scanned by the packager (ie. scanned for placeholders and checksum is set)</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">proxySettings</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.ProxySettings&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Proxy Settings for artifact location</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">scanPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to scan this artifact to replace placeholders when it is imported</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, this deployable will only be mapped automatically to containers with the same tag.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">textFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">.+\.(cfg | conf | config | ini | properties | props | txt | asp | aspx | htm | html | jsf | jsp | xht | xhtml | sql | xml | xsd | xsl | xslt)</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names of text files</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">delimiters</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{{ }}</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The delimiters used indicate placeholders, defaults to '{{ }}'. This is a 5 character string with a space in the middle, the first two are the leading delimiter, the last two are the closing delimiter</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployed"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployed</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Deployed, udm.EmbeddedDeployedContainer
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype of all Deployeds.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The container on which this deployed runs.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The deployable that this deployed is derived from.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.ConfigurationItem&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of created CIs.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployedArtifact"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployedArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployed">udm.BaseDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.Deployed, udm.DerivedArtifact, udm.EmbeddedDeployedContainer
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype of all DeployedArtifacts.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The container on which this deployed runs.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The deployable that this deployed is derived from.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A Map containing all the placeholders mapped to their values. Special values are &lt;ignore&gt; or &lt;empty&gt;</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.ConfigurationItem&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of created CIs.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployedContainer"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployedContainer</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployed">udm.BaseDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Container, udm.Deployed, udm.EmbeddedDeployedContainer, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Base type for all deployeds that are containers.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The container on which this deployed runs.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The deployable that this deployed is derived from.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, only deployables with the same tag will be automatically mapped to this container.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.ConfigurationItem&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of created CIs.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseDeployedInfrastructureAsCode"></a>
+    <h4 class="ci-detail-title">udm.BaseDeployedInfrastructureAsCode</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployedArtifact">udm.BaseDeployedArtifact</a> &gt;&gt; <a href="#udm.BaseDeployed">udm.BaseDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.Deployed, udm.DerivedArtifact, udm.EmbeddedDeployedContainer
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype for infrastructure as code deployeds with output variables.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The container on which this deployed runs.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">automaticDictionary</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If true, XL Deploy will automatically create a dictionary containing the output variables and add it to the environment.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The deployable that this deployed is derived from.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">dictionaryPath</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Path to the dictionary containing the output variables. If empty, the dictionary name will be the name of the template concatenated with -dictionary. If you specify a dictionary name, it will be created in the same folder as the target environment or in the folder specified for the new environment. You can also specify a full path starting with 'Environments/'.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">environmentPath</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Path to the new environment. If empty, the generated CIs will be added to the target environment. If you specify an environment name, the new environment will be created in the same folder as the target environment. If you specify a folder and an environment name, they will be created in the same folder as the target environment. You can also specify a full path starting with 'Environments/'.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">generateCIsFromResources</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If true, XL Deploy will automatically create CIs based on resources that are deployed.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">generatedConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.ConfigurationItem&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Set of infrastructure resources mapped to configuration items.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">outputVariables</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Output variables captured in deployed.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A Map containing all the placeholders mapped to their values. Special values are &lt;ignore&gt; or &lt;empty&gt;</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.ConfigurationItem&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of created CIs.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseEmbeddedDeployable"></a>
+    <h4 class="ci-detail-title">udm.BaseEmbeddedDeployable</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.EmbeddedDeployable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype of all EmbeddedDeployables.</p>
+    
+    
+    
+    <hr/>
+    <a id="udm.BaseEmbeddedDeployed"></a>
+    <h4 class="ci-detail-title">udm.BaseEmbeddedDeployed</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.EmbeddedDeployed, udm.EmbeddedDeployedContainer
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">The supertype of all EmbeddedDeployeds.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployedContainer&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The (embedded) deployed which contains this embedded deployed.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The embedded deployable that this embedded deployed is derived from.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.BaseProvisionable"></a>
+    <h4 class="ci-detail-title">udm.BaseProvisionable</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployable">udm.BaseDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Deployable, udm.Provisionable, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Base type for all provisionables.</p>
+
+    <table class="ci-table" summary="Children">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Children</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">provisioners</span><span>: </span><span class="ci-property-kind">
+                        LIST_OF_CI&lt;udm.Provisioner&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">A list of provisioners associated with the instance.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, this deployable will only be mapped automatically to containers with the same tag.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">cardinality</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">1</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Number of instances to launch.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseProvisioned"></a>
+    <h4 class="ci-detail-title">udm.BaseProvisioned</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployed">udm.BaseDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Deployed, udm.EmbeddedDeployedContainer, udm.Provisioned
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Base type for all provisioneds.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The container on which this deployed runs.</div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="ci-table" summary="Children">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Children</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">provisioners</span><span>: </span><span class="ci-property-kind">
+                        LIST_OF_CI&lt;udm.AppliedProvisioner&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">A list of provisioners associated with the instance.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of created CIs.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The deployable that this deployed is derived from.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">ordinal</span><span>: </span><span class="ci-property-kind">INTEGER</span>&nbsp;=&nbsp;<span class="ci-property-default">1</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The index of the cardinality amount created provisioneds.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseProvisionedContainer"></a>
+    <h4 class="ci-detail-title">udm.BaseProvisionedContainer</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseDeployedContainer">udm.BaseDeployedContainer</a> &gt;&gt; <a href="#udm.BaseDeployed">udm.BaseDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Container, udm.Deployed, udm.EmbeddedDeployedContainer, udm.Provisioned, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Base type for all provisioneds that are containers.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The container on which this deployed runs.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of created CIs.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The deployable that this deployed is derived from.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, only deployables with the same tag will be automatically mapped to this container.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">ordinal</span><span>: </span><span class="ci-property-kind">INTEGER</span>&nbsp;=&nbsp;<span class="ci-property-default">1</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The index of the cardinality amount created provisioneds.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.BaseProvisioner"></a>
+    <h4 class="ci-detail-title">udm.BaseProvisioner</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.EmbeddedDeployable, udm.Provisioner
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Base type for all provisioners.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">hostTemplate</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Host template on which provisioning actions will be executed.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.BaseProvisionerArtifact"></a>
+    <h4 class="ci-detail-title">udm.BaseProvisionerArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.EmbeddedDeployableArtifact">udm.EmbeddedDeployableArtifact</a> &gt;&gt; <a href="#udm.BaseEmbeddedDeployable">udm.BaseEmbeddedDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.EmbeddedDeployable, udm.Provisioner, udm.SourceArtifact
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Base type for all provisioners artifacts.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">hostTemplate</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Host template on which provisioning actions will be executed.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">checksum</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The checksum used to detect differences on the artifact. If not provided, it will be calculated by XL Deploy.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">credentials</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.Credentials&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">excludeFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names that must be excluded from scanning</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileUri</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The URI pointing to the (remote) location of the file this artifact represents</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Placeholders detected in this artifact</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">proxySettings</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.ProxySettings&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">scanPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to scan this artifact for placeholders when it is imported</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">textFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">.+\.(cfg | conf | config | ini | properties | props | txt | asp | aspx | htm | html | jsf | jsp | xht | xhtml | sql | xml | xsd | xsl | xslt)</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names of text files</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">delimiters</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{{ }}</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The delimiters used indicate placeholders, defaults to '{{ }}'. This is a 5 character string with a space in the middle, the first two are the leading delimiter, the last two are the closing delimiter</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileEncodings</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{ .+\.properties=ISO-8859-1 }</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">A map that maps regular expressions matching the full path of file(s) in the artifact to character set encodings</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.CompositePackage"></a>
+    <h4 class="ci-detail-title">udm.CompositePackage</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.Version">udm.Version</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">(Deprecated) A container of DeploymentPackages that is a DeploymentPackage itself. </p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">application</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Application">udm.Application</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The application this version belongs to.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">orchestrator</span><span>: </span><span class="ci-property-kind">LIST_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The orchestrators that are used to create the deployment plan. Orchestrators will be applied in order.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">packages</span><span>: </span><span class="ci-property-kind">
+                        LIST_OF_CI&lt;<a href="#udm.Version">udm.Version</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The DeploymentPackages that make up this CompositePackage.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportAllPasswords</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties are exported as plaintext while exporting the package. If false, exportOnlyPasswordPlaceholders is considered.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportOnlyPasswordPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties whose value starts and ends with double curly braces are exported as plaintext. Else, the password values are discarded while exporting the package.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">ignoreUndefinedPropertiesInManifest</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to ignore all the undefined properties used in the manifest or to raise an error, while importing a package.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.Configuration"></a>
+    <h4 class="ci-detail-title">udm.Configuration</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+    </table>
+    <p class="ci-description">Contains deployment configuration information</p>
+    
+    
+    
+    <hr/>
+    <a id="udm.DeployedApplication"></a>
+    <h4 class="ci-detail-title">udm.DeployedApplication</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseConfigurationItemWithPolicies">udm.BaseConfigurationItemWithPolicies</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">A deployment of an application package or a deployable artifact to a middleware CI or an environment.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">environment</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Environment">udm.Environment</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Environment</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">version</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Version">udm.Version</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The package that was deployed to the environment</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundConfigurationItems</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.ConfigurationItem&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Configuration items resolved from templates on the provisioning package.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployeds</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.Deployed&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The items that were deployed to the environment.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">forceRedeploy</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Deployment overrides existing application completely.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">onFailurePolicy</span><span>: </span><span class="ci-property-kind">ENUM [NOOP, CANCEL_AND_ARCHIVE]</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Process failed tasks on CI according to the defined policy.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">onSuccessPolicy</span><span>: </span><span class="ci-property-kind">ENUM [NOOP, ARCHIVE]</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Process successful tasks on CI according to the defined policy.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">optimizePlan</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Optimize the generated plan after orchestration.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">orchestrator</span><span>: </span><span class="ci-property-kind">LIST_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The orchestrators that are used to create the deployment plan. Orchestrators will be applied in order.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">undeployDependencies</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Undeploy direct or transient dependencies of this application. A dependent application is undeployed if no other applications depend on it.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">unresolvedPlaceholders</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Placeholders provided by the user at provisioning.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.DeploymentPackage"></a>
+    <h4 class="ci-detail-title">udm.DeploymentPackage</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.Version">udm.Version</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">A package of a certain version of an application. Groups all deployable artifact CIs for an application for a certain version. Is contained by the Application CI.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">application</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Application">udm.Application</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The application this version belongs to.</div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="ci-table" summary="Children">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Children</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployables</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of deployables that are part of this package</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">templates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">dependencyResolution</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">LATEST</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The resolution to use for application dependencies when deploying this application. Should be 'LATEST' or 'EXISTING'. A placeholder can be used.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">applicationDependencies</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The versions of other applications that this package depends on, as a mapping from application name to version range</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI bound templates.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">orchestrator</span><span>: </span><span class="ci-property-kind">LIST_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The orchestrators that are used to create the deployment plan. Orchestrators will be applied in order.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">undeployDependencies</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">false</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to undeploy direct or transient dependencies of this application. Dependency is undeployed if there are not other application that depend on it. Should be 'true' or 'false'. A placeholder can be used.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportAllPasswords</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties are exported as plaintext while exporting the package. If false, exportOnlyPasswordPlaceholders is considered.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportOnlyPasswordPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties whose value starts and ends with double curly braces are exported as plaintext. Else, the password values are discarded while exporting the package.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">ignoreUndefinedPropertiesInManifest</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to ignore all the undefined properties used in the manifest or to raise an error, while importing a package.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.Dictionary"></a>
+    <h4 class="ci-detail-title">udm.Dictionary</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.AbstractDictionary">udm.AbstractDictionary</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.IDictionary, udm.IEncryptedDictionary
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">A Dictionary contains key-value pairs that can be replaced</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">encryptedEntries</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The encrypted dictionary entries</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">entries</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The dictionary entries</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">restrictToApplications</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Application">udm.Application</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Only apply this dictionary to the applications mentioned</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">restrictToContainers</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Only apply this dictionary to the containers mentioned</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.EmbeddedDeployableArtifact"></a>
+    <h4 class="ci-detail-title">udm.EmbeddedDeployableArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseEmbeddedDeployable">udm.BaseEmbeddedDeployable</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.EmbeddedDeployable, udm.SourceArtifact
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Description unavailable</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">checksum</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The checksum used to detect differences on the artifact. If not provided, it will be calculated by XL Deploy.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">credentials</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.Credentials&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">excludeFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names that must be excluded from scanning</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileUri</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The URI pointing to the (remote) location of the file this artifact represents</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Placeholders detected in this artifact</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">proxySettings</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;credentials.ProxySettings&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Credentials</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">scanPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to scan this artifact for placeholders when it is imported</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">textFileNamesRegex</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">.+\.(cfg | conf | config | ini | properties | props | txt | asp | aspx | htm | html | jsf | jsp | xht | xhtml | sql | xml | xsd | xsl | xslt)</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Regular expression that matches file names of text files</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">delimiters</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{{ }}</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The delimiters used indicate placeholders, defaults to '{{ }}'. This is a 5 character string with a space in the middle, the first two are the leading delimiter, the last two are the closing delimiter</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">fileEncodings</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">{ .+\.properties=ISO-8859-1 }</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">A map that maps regular expressions matching the full path of file(s) in the artifact to character set encodings</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.EmbeddedDeployedArtifact"></a>
+    <h4 class="ci-detail-title">udm.EmbeddedDeployedArtifact</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr><tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.BaseEmbeddedDeployed">udm.BaseEmbeddedDeployed</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Artifact, udm.DerivedArtifact, udm.EmbeddedDeployed, udm.EmbeddedDeployedContainer
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">Description unavailable</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">container</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployedContainer&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The (embedded) deployed which contains this embedded deployed.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployable</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;udm.EmbeddedDeployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The embedded deployable that this embedded deployed is derived from.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">placeholders</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">A Map containing all the placeholders mapped to their values. Special values are &lt;ignore&gt; or &lt;empty&gt;</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.EncryptedDictionary"></a>
+    <h4 class="ci-detail-title">udm.EncryptedDictionary</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.Dictionary">udm.Dictionary</a> &gt;&gt; <a href="#udm.AbstractDictionary">udm.AbstractDictionary</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.IDictionary, udm.IEncryptedDictionary
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">An EncryptedDictionary contains keys and encrypted values that can be replaced. Values are encrypted when they are stored and decrypted before being used.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">entries</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The dictionary entries</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">restrictToApplications</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Application">udm.Application</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Only apply this dictionary to the applications mentioned</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">restrictToContainers</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Only apply this dictionary to the containers mentioned</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">encryptedEntries</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The encrypted dictionary entries</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.Environment"></a>
+    <h4 class="ci-detail-title">udm.Environment</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        
+    </table>
+    <p class="ci-description">Groups infrastructure CIs and dictionaries and serves as a target for deployment.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">dictionaries</span><span>: </span><span class="ci-property-kind">
+                        LIST_OF_CI&lt;udm.IDictionary&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The dictionaries providing placeholder values. If the same entry exists in multiple dictionaries, the first one in the list is taken.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">directoryPath</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The directory path where the provisioned environment and provisioned configuration items will be stored.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">members</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.Container&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The infrastructure components of this Environment</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">patchDictionaries</span><span>: </span><span class="ci-property-kind">
+                        LIST_OF_CI&lt;udm.PatchDictionary&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">List of patch dictionaries that apply changes on the deployables.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.Parameters"></a>
+    <h4 class="ci-detail-title">udm.Parameters</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        
+    </table>
+    <p class="ci-description">Default implementation of a CI that provides ID, name and type information.</p>
+    
+    
+    
+    <hr/>
+    <a id="udm.ProvisioningPackage"></a>
+    <h4 class="ci-detail-title">udm.ProvisioningPackage</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#udm.DeploymentPackage">udm.DeploymentPackage</a> &gt;&gt; <a href="#udm.Version">udm.Version</a> &gt;&gt; <a href="#udm.BaseConfigurationItem">udm.BaseConfigurationItem</a>
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">A package of a certain version of an application. Groups all provisionable artifact CIs for an application for a certain version. Is contained by the Application CI.</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">application</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Application">udm.Application</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The application this version belongs to.</div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="ci-table" summary="Children">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Children</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">deployables</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;udm.Deployable&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of provisionables and deployables that are part of this package</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">templates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI templates.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">dependencyResolution</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">LATEST</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The resolution to use for application dependencies when deploying this application. Should be 'LATEST' or 'EXISTING'. A placeholder can be used.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">applicationDependencies</span><span>: </span><span class="ci-property-kind">MAP_STRING_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The versions of other applications that this package depends on, as a mapping from application name to version range</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">boundTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The set of CI bound templates.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">orchestrator</span><span>: </span><span class="ci-property-kind">LIST_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">The orchestrators that are used to create the deployment plan. Orchestrators will be applied in order.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">undeployDependencies</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">false</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to undeploy direct or transient dependencies of this application. Dependency is undeployed if there are not other application that depend on it. Should be 'true' or 'false'. A placeholder can be used.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportAllPasswords</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties are exported as plaintext while exporting the package. If false, exportOnlyPasswordPlaceholders is considered.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportOnlyPasswordPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties whose value starts and ends with double curly braces are exported as plaintext. Else, the password values are discarded while exporting the package.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">ignoreUndefinedPropertiesInManifest</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to ignore all the undefined properties used in the manifest or to raise an error, while importing a package.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+    <a id="udm.Template"></a>
+    <h4 class="ci-detail-title">udm.Template</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+    </table>
+    <p class="ci-description">Base type for all generated template CIs.</p>
+
+    <table class="ci-table" summary="Children">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Children</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">childTemplates</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#udm.Template">udm.Template</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Child templates associated with this template.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">instanceName</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Name that the created instance of this template will have. If not specified, the instance name will be generated based on the template name and provisioning ID.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="udm.Version"></a>
+    <h4 class="ci-detail-title">udm.Version</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th colspan="2">Virtual Type</th>
+        </tr>
+    </table>
+    <p class="ci-description">A version of an application .</p>
+    <table class="ci-table" summary="Parent">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Parent</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">application</span><span>: </span><span class="ci-property-kind">
+                        CI&lt;<a href="#udm.Application">udm.Application</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The application this version belongs to.</div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">orchestrator</span><span>: </span><span class="ci-property-kind">LIST_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">The orchestrators that are used to create the deployment plan. Orchestrators will be applied in order.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportAllPasswords</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties are exported as plaintext while exporting the package. If false, exportOnlyPasswordPlaceholders is considered.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">exportOnlyPasswordPlaceholders</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If this is true, all password properties whose value starts and ends with double curly braces are exported as plaintext. Else, the password values are discarded while exporting the package.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">ignoreUndefinedPropertiesInManifest</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>&nbsp;=&nbsp;<span class="ci-property-default">true</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Whether to ignore all the undefined properties used in the manifest or to raise an error, while importing a package.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+</div>
+                </div><!--left column ends here-->
+            </div>
+
+            <div class="cleardiv"></div>
+            <div class="push"></div>
+        </div>  <!-- main content Ends -->
+    </div><!--main container start here-->
+    <div class="cleardiv"></div>
+    <div class="footer"><!--footer section Start here-->
+        <div class="footer-border"></div>
+        <div class="footerbottom">
+            <div id="block-block-5" class="clear-block block block-block first">
+                <div class="content">
+                        <div>
+        <span class="footer-msg">Copyright 2021. Digital.ai, Inc. All rights reserved</span>
+    </div>
+
+                </div>
+            </div>
+
+        </div><!--footer section ends here--><div class="footer-border"></div>
+    </div>
+
+</div><!-- main page ends -->
+</body></html>
+

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<udm.DeploymentPackage application="PetClinic-war" version="2.0">
+    <deployables>
+        <jee.War name="petclinic" file="PetClinic-2.0.war"/>
+    </deployables>
+</udm.DeploymentPackage>

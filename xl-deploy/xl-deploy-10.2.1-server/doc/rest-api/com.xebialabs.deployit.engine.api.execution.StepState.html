@@ -1,0 +1,99 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.engine.api.execution.StepState</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>StepState</h1>
+Steps are rendered in XML as a <code>&lt;step></code> element.
+
+<h3>Attributes</h3>
+<dl>
+<dt>state</dt>
+<dd>The current state of the step: 	<code>PENDING</code>, <code>EXECUTING</code>, <code>PAUSED</code>, <code>FAILED</code>,
+<code>DONE</code> or <code>SKIPPED</code>.
+</dd>
+
+<dt>failures</dt>
+<dd>The number of times this step has failed.</dd>
+</dl>
+
+<h3>Child elements</h3>
+<dl>
+<dt>&lt;description></dt>
+<dd>Textual description of the step.</dd>
+
+<dt>&lt;startDate></dt>
+<dd>The date when the step was started. Format: the <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 profile used in XML</a></dd>
+
+<dt>&lt;completionDate></dt>
+<dd>The date when the step was completed. Format: <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 profile used in XML</a></dd>
+
+<dt>log</dt>
+<dd>Contains the entire log output of the step. This may be long.</dd>
+</dl>
+
+
+<h2>Example</h2>
+<pre>
+&lt;step failures="0" state="PENDING">
+  &lt;description>Create Step (# 0)&lt;/description>
+  &lt;startDate>Wed, 20 Jun 12 12:15:09 CEST&lt;/startDate>
+  &lt;completionDate>Wed, 20 Jun 12 12:15:09 CEST&lt;/completionDate>
+  &lt;log>
+    Connecting to server...
+  &lt;/log>
+&lt;/step>
+</pre>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

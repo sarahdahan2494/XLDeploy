@@ -1,0 +1,16 @@
+xl.repository:
+  artifacts:
+    root: artifacts
+    allow-move: false
+    type: file
+  database:
+    db-driver-classname: ~
+    db-url: ~
+    db-password: ~
+    db-username: ~
+    connection-timeout: 30 seconds
+    idle-timeout: 10 minutes
+    leak-detection-threshold: 2 minutes
+    max-life-time: 30 minutes
+    max-pool-size: 10
+    minimum-idle: 10

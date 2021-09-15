@@ -1,0 +1,699 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>RoleService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>RoleService</h1>
+</div>
+<p>Manages the roles in XL Deploy's security system.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/:GET">/security/role/</a>
+</td>
+<td>Lists the names of all available roles in the security system.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/exists/{name}:GET">/security/role/exists/{name}</a>
+</td>
+<td>Checks if role with given name exists</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/security/role/principals:POST">/security/role/principals</a>
+</td>
+<td>Update principals for existing role</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/principals:GET">/security/role/principals</a>
+</td>
+<td>Lists all role principals available in the security system.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/roles:GET">/security/role/roles</a>
+</td>
+<td>Lists the roles of the currently logged in user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/roles/{username}:GET">/security/role/roles/{username}</a>
+</td>
+<td>Lists the roles of a user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/v2:GET">/security/role/v2</a>
+</td>
+<td>Lists the names of all available roles in the security system.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/v2/principals:GET">/security/role/v2/principals</a>
+</td>
+<td>Lists paged role principals available in the security system for given role name pattern</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/v2/roles:GET">/security/role/v2/roles</a>
+</td>
+<td>Lists the roles of the currently logged in user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/v2/roles/{username}:GET">/security/role/v2/roles/{username}</a>
+</td>
+<td>Lists the roles of a user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/role/v2/{id:.+}:GET">/security/role/v2/{id:.+}</a>
+</td>
+<td>List the roles for given configuration item ID</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/security/role/{role}:PUT">/security/role/{role}</a>
+</td>
+<td>Creates a new role.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/security/role/{role}:POST">/security/role/{role}</a>
+</td>
+<td>Renames a role.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/security/role/{role}:DELETE">/security/role/{role}</a>
+</td>
+<td>Removes a role from the XL Deploy security system.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/security/role/{role}/principals:POST">/security/role/{role}/principals</a>
+</td>
+<td>Assigns a role to a user or group.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/security/role/{role}/{principal}:PUT">/security/role/{role}/{principal}</a>
+</td>
+<td>Assigns a role to a user or group.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/security/role/{role}/{principal}:DELETE">/security/role/{role}/{principal}</a>
+</td>
+<td>Removes a role from a user or group.</td>
+</tr>
+</table>
+<hr/>
+<a id="/security/role/:GET"></a>
+<h2 class="resource-header">
+GET /security/role/</h2>
+<p></p>
+<div>Lists the names of all available roles in the security system.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - a list of role names.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/exists/{name}:GET"></a>
+<h2 class="resource-header">
+GET /security/role/exists/{name}</h2>
+<p></p>
+<div>Checks if role with given name exists</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>name</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>checked role name</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="boolean.html">boolean</a>
+ - true or false</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/principals:POST"></a>
+<h2 class="resource-header">
+POST /security/role/principals</h2>
+<p></p>
+<div>Update principals for existing role</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>RolePrincipals</td>
+<td>rolePrincipals.role for which the rolePrincipals.principals is applied to</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/role/principals:GET"></a>
+<h2 class="resource-header">
+GET /security/role/principals</h2>
+<p></p>
+<div>Lists all role principals available in the security system.</div>
+<dl>
+<dt>Response body</dt>
+<dd>List of RolePrincipals</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/roles:GET"></a>
+<h2 class="resource-header">
+GET /security/role/roles</h2>
+<p></p>
+<div>Lists the roles of the currently logged in user.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - a list of role names.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/roles/{username}:GET"></a>
+<h2 class="resource-header">
+GET /security/role/roles/{username}</h2>
+<p></p>
+<div>Lists the roles of a user.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>username</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the username of the principal</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - a list of role names.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/v2:GET"></a>
+<h2 class="resource-header">
+GET /security/role/v2</h2>
+<p></p>
+<div>Lists the names of all available roles in the security system.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - a list of role names.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/v2/principals:GET"></a>
+<h2 class="resource-header">
+GET /security/role/v2/principals</h2>
+<p></p>
+<div>Lists paged role principals available in the security system for given role name pattern</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>rolePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role name pattern used for search</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>search paging</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>search order</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of RolePrincipals</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/v2/roles:GET"></a>
+<h2 class="resource-header">
+GET /security/role/v2/roles</h2>
+<p></p>
+<div>Lists the roles of the currently logged in user.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - a list of role names.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/v2/roles/{username}:GET"></a>
+<h2 class="resource-header">
+GET /security/role/v2/roles/{username}</h2>
+<p></p>
+<div>Lists the roles of a user.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>username</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the username of the principal</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - a list of role names.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/v2/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /security/role/v2/{id:.+}</h2>
+<p></p>
+<div>List the roles for given configuration item ID</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>configuration item ID</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>rolePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the role name pattern used for search</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>search paging</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>search order</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of Role - a list of roles.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/role/{role}:PUT"></a>
+<h2 class="resource-header">
+PUT /security/role/{role}</h2>
+<p></p>
+<div>Creates a new role. Does nothing if the role already exists.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the new role.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/role/{role}:POST"></a>
+<h2 class="resource-header">
+POST /security/role/{role}</h2>
+<p></p>
+<div>Renames a role. Does nothing if the role does not exist.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the current name</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the new name</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/role/{role}:DELETE"></a>
+<h2 class="resource-header">
+DELETE /security/role/{role}</h2>
+<p></p>
+<div>Removes a role from the XL Deploy security system. All assignments to principals are deleted as well.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the role to delete.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/role/{role}/principals:POST"></a>
+<h2 class="resource-header">
+POST /security/role/{role}/principals</h2>
+<p></p>
+<div>Assigns a role to a user or group. The role will be created if it doesn't exist yet.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the role to assign</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>the user or group to assign the role to.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/role/{role}/{principal}:PUT"></a>
+<h2 class="resource-header">
+PUT /security/role/{role}/{principal}</h2>
+<p></p>
+<div>Assigns a role to a user or group. The role will be created if it doesn't exist yet.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the role to assign</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>principal</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the user or group to assign the role to.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/role/{role}/{principal}:DELETE"></a>
+<h2 class="resource-header">
+DELETE /security/role/{role}/{principal}</h2>
+<p></p>
+<div>Removes a role from a user or group.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>role</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the role to remove</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>principal</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the user or group to remove the role from.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

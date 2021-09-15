@@ -1,0 +1,219 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>InspectionService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>InspectionService</h1>
+</div>
+<p>Inspects middleware. Provides services to discover your topology and resources and synchronize them with the state currently known in XL Deploy.</p>
+<table class="parameter-table">
+<tr>
+<td>POST</td>
+<td>
+<a href="#/inspection/:POST">/inspection/</a>
+</td>
+<td>Creates the inspection task</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/inspection/prepare:POST">/inspection/prepare</a>
+</td>
+<td>Initializes the task parameter object for inspection on a CI.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/inspection/prepare/{id:.+}:GET">/inspection/prepare/{id:.+}</a>
+</td>
+<td>Initializes the task parameter object for inspection on a CI.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/inspection/retrieve/{taskId}:POST">/inspection/retrieve/{taskId}</a>
+</td>
+<td>Retrieve the inspection results</td>
+</tr>
+</table>
+<hr/>
+<a id="/inspection/:POST"></a>
+<h2 class="resource-header">
+POST /inspection/</h2>
+<p></p>
+<div>Creates the inspection task for the object returned by <code>/inspection/prepare</code></div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>discovery</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Inspection.html">Inspection</a>
+</td>
+<td>the inspection parameter object</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - a reference to a Task ID that can be executed by the <a href="com.xebialabs.deployit.engine.api.TaskService.html">TaskService</a>
+.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/inspection/prepare:POST"></a>
+<h2 class="resource-header">
+POST /inspection/prepare</h2>
+<p></p>
+<div>Initializes the task parameter object for inspection on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>discovery</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+</td>
+<td>The CI to inspect. For example, the root node of a middleware topology.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Inspection.html">Inspection</a>
+ - an Inspection parameter object.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/inspection/prepare/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /inspection/prepare/{id:.+}</h2>
+<p></p>
+<div>Initializes the task parameter object for inspection on a CI.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>discovery</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the CI to inspect. For example, the root node of a middleware topology.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Inspection.html">Inspection</a>
+ - an Inspection parameter object.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/inspection/retrieve/{taskId}:POST"></a>
+<h2 class="resource-header">
+POST /inspection/retrieve/{taskId}</h2>
+<p></p>
+<div>Retrieve the inspection results</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the Task ID of the task that ran the inspection.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+ - the list of CIs that were inspected.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="icon" type="image/ico" href="https://docs.collab.net/images/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Digital.ai Deploy 10.2.x Release Notes</title>
+<meta property="og:title" content="Digital.ai Deploy 10.2.x Release Notes" />
+<meta name="description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<meta property="og:description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<meta property="og:site_name" content="Digital.ai documentation" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@xebialabs" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "headline": "Digital.ai Deploy 10.2.x Release Notes",
+    "description": "Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.",
+    "logo": "https://docs.xebialabs.com/images/logos/xebialabs-standard.png"
+  }
+</script>
+
+<link type="text/css" rel="stylesheet" media="all" href="layout.css" />
+<link type="text/css" rel="stylesheet" media="all" href="ci-reference-api.css" />
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.tableofcontents.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("ol#toc").tableOfContents("body", { topLinks: false, startLevel: 1 });
+
+        //remove the toc if it is empty
+        if($("ol#toc").text().replace(/\n/g, '') == ''){
+            $("ol#toc").remove();
+        }
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32396304-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+    <div id="Main_container"><!--main container start here-->
+
+        <div id="header"><!--header start here-->
+           	<div class="cleardiv"></div>
+
+            <div id="menubar"><!--Navigation start here-->
+           	    <span class="logo">
+                    <a href="/">
+                        <img src="https://docs.xebialabs.com/static/logo-93f4fb56dc9f6018c2cc5109b7866daf.svg" alt="Digital.ai" height="50" border="0" />
+                    </a>
+                </span>
+           	    <div class="clear-block block block-nice_menus firstlast" id="block-nice_menus-1"></div>
+            </div>
+
+        </div>  <!--header ends here-->
+
+        <div class="cleardiv"></div>
+
+        <div id="main_white_bg" ><!-- main content start -->
+            <!-- <div id="breadcrumb">
+                <ul>
+                    <li><a href="/index.html">Product Docs</a></li>
+                    <li>&nbsp;&gt;&nbsp;</li>
+                    <li><a href="javascript:void(0)" class="active">Digital.ai Deploy 10.2.x Release Notes</a></li>
+                </ul>
+            </div> -->
+
+
+            <div id="product-doc-height">
+                <h1>Digital.ai Deploy 10.2.x Release Notes</h1>
+            </div>
+
+            <div class="toccol"><!--right column start here-->
+                <ol id="toc"></ol>
+            </div><!--right column ends here-->
+
+            <div class="leftcol"><!--left column start here-->
+                <div id="start-listing">
+                    <h1>Upgrade instructions</h1>
+<p>The Digital.ai Deploy upgrade process you use depends on the version from which you are upgrading, and the version to which you want to go.</p>
+<p>For detailed instructions based on your upgrade scenario, refer to <a href="https://docs.xebialabs.com/deploy/how-to/upgrade-xl-deploy/">Upgrade Deploy</a>.</p>
+<h1>Digital.ai Deploy 10.2.0</h1>
+<p>Digital.ai Deploy 10.2.0 is a xxx-term support (xTS) version that will be supported until superseded by the next release. For more information, refer to <a href="https://support.digital.ai/hc/en-us/articles/360016879780-XebiaLabs-Supported-Product-Versions#short-term-and-long-term-support-policy-0-1">Short-term support/Long-term support policy</a>.</p>
+<h2>New features</h2>
+<p>In addition to bug fixes, the Digital.ai Deploy 10.2 includes the following new features:</p>
+<ul>
+<li>A well-rounded Central Configuration Management feature</li>
+<li>An option to Force Redeploy applications without having to do delta analysis or cleanup</li>
+<li>An enhanced Plugin Manager and Plugin Manager CLI to install, upgrade, and delete plugins with ease</li>
+<li>An enhanced user experience via Unified Navigation menus and widgets</li>
+<li>A new <code>globalContext</code> object to set attributes with global scope so that you can access them from any of the Deploy's planning contexts such as <code>pre-plan</code>, <code>deployed</code>, <code>plan</code> and <code>post-plan</code></li>
+</ul>
+<!-- * A new [`PackageRetentionPolicy`](#new-field-for-package-retention-policy) field to retain packages that are created within a specified number of days -->
+<ul>
+<li>Kubernetes Operator-based installation and upgrade</li>
+<li>New plugins for:
+<ul>
+<li>Azure Cloud Service</li>
+<li>Cloud Foundry CLI</li>
+</ul>
+</li>
+<li>New APIs</li>
+</ul>
+<h3>Central Configuration Management</h3>
+<p>The Central Configuration Management feature—part delivered in Deploy 10.1—has been enhanced in Deploy 10.2.</p>
+<p>The following noteworthy enhancements and changes are part of the Central Configuration Management feature in Deploy 10.2:</p>
+<ul>
+<li>Added a new <code>centralConfiguration/deploy-artifact-resolver.yaml</code> file</li>
+<li>Moved the Akka DNS override configuration properties from <code>conf/xl-deploy.conf</code> to <code>centralConfiguration/deploy-server.yaml</code></li>
+<li>Moved Deploy database configuration properties (both repository and reporting database configuration properties) from <code>conf/xl-deploy.conf</code> to <code>centralConfiguration/deploy-repository.yaml</code> and <code>centralConfiguration/deploy-reporting.yaml</code> files respectively.</li>
+<li>Moved Deploy server configuration properties from <code>conf/xl-deploy.conf</code> to <code>centralConfiguration/deploy-server.yaml</code></li>
+<li>Moved the task configuration properties from <code>conf/xl-deploy.conf</code> to <code>centralConfiguration/deploy-task.yaml</code></li>
+<li>Moved the satellite configuration properties from <code>conf/xl-deploy.conf</code> to <code>centralConfiguration/deploy-satellite.yaml</code></li>
+<li>Renamed the <code>deployit-defaults.properties</code> file as <code>type-defaults.properties</code></li>
+<li>Moved some of the configuration properties from the <code>deployit.conf</code> file to <code>deploy-client.yaml</code> and <code>deploy-server.yaml</code> files—one for configuring the client and the other for the server.</li>
+<li>The <code>deploy-client-gui.yaml</code> file is no longer available and all its configuration properties have been subsumed by the <code>deploy-client.yaml</code> file</li>
+<li>AES algorithm for encryption/decryption of sensitive configuration data such as passwords</li>
+<li>Multiple keys and key rotation for added security</li>
+</ul>
+<p>The above list of changes is just for your understanding. The configuration files and properties are auto-migrated when you upgrade to or install Deploy 10.2 (or later). No user intervention whatsoever is needed when you upgrade to or install Deploy 10.2.</p>
+<p>For more information, see <a href="/deploy/concept/central-configuration-overview/">Central Configuration Management</a></p>
+<h3>Force Redeploy applications</h3>
+<p>At times you may want to just redeploy an already deployed application by merging and overriding the content without doing the delta analysis or cleanup. Such situations arise when you want to simply destroy/uninstall the existing deployed (application) and install the application again.</p>
+<p>Select the <strong>Force Redeploy</strong> property (check box) of the deployed application from the <strong>Deployment Properties</strong> dialog box and do the deployment in such situations.</p>
+<p><a href="images/102-force-redeploy.png"><img src="images/102-force-redeploy.png" alt="force-redeploy" /></a></p>
+<p>Though this feature works with all the plugins, here's a list of plugins that were tested and qualified in Deploy 10.2. Other plugins would be included in the test coverage in due course.</p>
+<ul>
+<li>File plugin</li>
+<li>Command Plugin</li>
+<li>Database plugin</li>
+<li>Kubernetes plugin</li>
+<li>AWS plugin</li>
+<li>Terraform plugin</li>
+<li>Webserver plugin</li>
+</ul>
+<p><strong>Note</strong>: The <strong>Force Redeploy</strong> feature is not supported for plugins that are used to deploy WAR type deployables—Tomcat and JEE plugins, for example.</p>
+<h3>Plugin Manager and Plugin Manager CLI</h3>
+<p>Digital.ai Deploy 10.2 is equipped with an enhanced Plugin Manager and a new Plugin Manager CLI.</p>
+<p>The enhanced Plugin Manager:</p>
+<ul>
+<li>
+<p>Lets you search and install plugins (<strong>Browse</strong> tab)</p>
+</li>
+<li>
+<p>Shows an <strong>Upgrade</strong> button for plugins that are installed already and lets you upgrade the plugins whenever a new version is available (<strong>Browse</strong> tab)</p>
+<p><a href="images/102-deploy-pluginmanager.png"><img src="images/102-deploy-pluginmanager.png" alt="deploy-plugin-manager" /></a></p>
+</li>
+<li>
+<p>Lets you upload a new plugin or a new version of an already installed plugin (<strong>Installed</strong> tab's <strong>Upload new plugin file</strong>)</p>
+</li>
+</ul>
+<p>For more information, see <a href="/deploy/how-to/using-the-plugins-manager/">Plugin Manager</a></p>
+<p>Deploy 10.2 is equipped with a new Plugin Manager CLI utility to delete plugins from both the filesystem and database. For more information, see <a href="/deploy/how-to/using-plugin-manager-cli/">Plugin Manager CLI</a></p>
+<h3>Kubernetes Operator-based installation</h3>
+<p>Kubernetes Operator is a custom Kubernetes controller that helps in simplifying deployment process by automating tasks. An Operator combines the custom resource definitions (CRD) and custom controllers to eliminate the need for manual intervention when performing tasks such as upgrade and failure recovery handling.</p>
+<p>In this release, the Digital.ai Deploy is deployed on Amazon EKS, Azure AKS, and Kubernetes On-premise clusters using Helm operator.</p>
+<h3>Unified Navigation—UX enhancements</h3>
+<p>One of the objectives of Deploy 10.2 is to provide better user experience. Digital.ai Deploy's navigation menus, icons, and widgets have been totally revamped to enhance the usability. For more information, see <a href="/deploy/how-to/getting-started-with-the-xl-deploy-user-interface/">Get started with the Deploy user interface</a></p>
+<p><a href="images/102-unified-navigation.png"><img src="images/102-unified-navigation.png" alt="unified-navigation" /></a></p>
+<h3>New globalContext object for use in all planning contexts</h3>
+<p>You can now use the <code>globalContext</code> object to set attributes globally and get those attributes in different planning contexts (such as <code>pre-plan</code>, <code>deployed</code>, <code>plan</code>, and <code>post-plan</code>) while executing Jython/Python scripts. For more information, see <a href="/deploy/how-to/create-an-xl-deploy-plugin/#the-code-classlanguage-textdeploymentplanningcontextcode">The DeploymentPlanningContext</a></p>
+<!-- ### Pendo Integration—In-app guides and usage analytics
+
+For enhanced data segmentation and analysis, Digital.ai Deploy supports `database` type for  `account metadata` under **Control tasks**. -->
+<!-- ### New field for Package Retention Policy
+
+The **Packages within no of days to retain** field allows you to retain the packages created within a specified number of days per each application based on the matching **Regex pattern**. For more information, see [Automatically purge deployment packages](/deploy/how-to/automatically-purge-packages-according-to-a-user-defined-policy/#automatically-purge-deployment-packages). -->
+<h3>Digital.ai Deploy Azure cloud service plugin</h3>
+<ul>
+<li>Deployment of cloud service spec to the Azure cloud through the Digital.ai Deploy</li>
+<li>Digital.ai Deploy Azure cloud service plugin support is now extended to:
+<ul>
+<li>Create a virtual network</li>
+<li>Create a storage account</li>
+<li>Create a public IP address</li>
+</ul>
+</li>
+</ul>
+<h3>Digital.ai Deploy Google Cloud Compute Plugin</h3>
+<p>The Digital.ai Deploy Google Cloud Compute plugin allows you to deploy the Digital.ai Deploy instance on the Google Cloud platform.</p>
+<h3>Digital.ai Deploy Cloud Foundry CLI plugin</h3>
+<p>Implemented multiple application deployment using single manifest file in the Cloud Foundry CLI integration plugin.</p>
+<h2>API changes</h2>
+<ul>
+<li>Added a new new API to get the overall number of deployments per deployment state—<code>GET /report/status-overview</code>. For more information, see <a href="/xl-deploy/10.2.x/rest-api/com.xebialabs.deployit.engine.api.ReportService.html">GET /report/status-overview</a> API documentation.</li>
+<li>Added a new new API to get the number of deployments per application and environment—<code>GET /report/app-env-status</code>. For more information, see <a href="/xl-deploy/10.2.x/rest-api/com.xebialabs.deployit.engine.api.ReportService.html">GET /report/app-env-status</a> API documentation.</li>
+<li>Added a new new API to get a summary of the tasks currently running and waiting in the queue—<code>GET /queue/summary</code>. For more information, see <a href="/xl-deploy/10.2.x/rest-api/com.xebialabs.deployit.engine.api.QueueService.html">GET /queue/summary</a> API documentation.</li>
+<li>Added a new new API to list all the QueuedTasks waiting in the task queue—<code>GET /queue/tasks</code>. For more information, see <a href="/xl-deploy/10.2.x/rest-api/com.xebialabs.deployit.engine.api.QueueService.html">GET /queue/tasks</a> API documentation.</li>
+</ul>
+<h2>Bug fixes</h2>
+<ul>
+<li>[ENG-2488] - The incorrect server-side error message that was used in place of the form-level validation error (if you leave the mandatory <code>Name</code> field empty when you create a configuration item) has been fixed.</li>
+<li>[ENG-2618] - Fixed an issue that prevented users from creating deployment packages that consist of a single file with no content (0 bytes) on Deploy sites that use the Oracle database.</li>
+<li>[ENG-4509] - Fixed a security vulnerability to prevent directory traversal attacks.</li>
+<li>[ENG-5621] - The maximum number of characters allowed for Deploy placeholders is 255 characters.</li>
+</ul>
+<h2>Known issues</h2>
+<ul>
+<li>[ENG-6866]—Users without Admin privileges are not able to view scheduled deployment/control tasks as soon as you turn the Deploy Maintenance Mode on.</li>
+</ul>
+
+                </div><!--left column ends here-->
+            </div>
+
+            <div class="cleardiv"></div>
+            <div class="push"></div>
+        </div>  <!-- main content Ends -->
+    </div><!--main container start here-->
+    <div class="cleardiv"></div>
+    <div class="footer"><!--footer section Start here-->
+        <div class="footer-border"></div>
+        <div class="footerbottom">
+            <div id="block-block-5" class="clear-block block block-block first">
+                <div class="content">
+                        <div>
+        <span class="footer-msg">Copyright 2021. Digital.ai, Inc. All rights reserved</span>
+    </div>
+
+                </div>
+            </div>
+
+        </div><!--footer section ends here--><div class="footer-border"></div>
+    </div>
+
+</div><!-- main page ends -->
+</body></html>
+

@@ -1,0 +1,6 @@
+xl.repository:
+  database:
+    db-driver-classname: ~
+    db-url: ~
+    db-password: ~
+    db-username: ~

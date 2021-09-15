@@ -1,0 +1,105 @@
+2021-08-16 10:40:55.719 [main] {} INFO  com.xebialabs.plugin.Xlp$ - Initializing xl plugins with extension .xldp in folders C:\Users\IB\Desktop\Cours\FormationXLDeploy\xl-deploy\xl-deploy-10.2.1-server\hotfix\plugins,C:\Users\IB\Desktop\Cours\FormationXLDeploy\xl-deploy\xl-deploy-10.2.1-server\plugins\__local__,C:\Users\IB\Desktop\Cours\FormationXLDeploy\xl-deploy\xl-deploy-10.2.1-server\plugins\xld-official
+2021-08-16 10:40:59.481 [main] {} INFO  c.x.d.p.j.t.JbossArchivesDriverService - Registering 'sar', 'rar', 'har' and 'aop' as archives available for placeholder replacement.
+2021-08-16 10:40:59.481 [main] {} INFO  c.x.d.p.j.u.JbossArchivesDriverService - Registering 'sar', 'rar', 'har' and 'aop' as archives available for placeholder replacement.
+2021-08-16 10:40:59.544 [main] {} INFO  c.x.deployit.DeployitBootstrapper - Starting up Jython engine (might take a while)...
+2021-08-16 10:41:02.618 [main] {} INFO  c.x.deployit.DeployitBootstrapper - Jython engine loaded [2.7.2]
+2021-08-16 10:41:02.819 [main] {} INFO  c.xebialabs.deployit.XLDeployServer - Preparing configuration files before booting the application
+2021-08-16 10:41:02.840 [main] {} INFO  com.xebialabs.deployit.setup.Setup - About to start XL Deploy
+2021-08-16 10:41:06.669 [main] {} INFO  c.x.d.booter.local.DelegateRegistry - Registering delegates.
+2021-08-16 10:41:06.716 [main] {} INFO  c.x.d.b.local.TypeSystemBootstrapper - Initializing type system.
+2021-08-16 10:41:07.664 [main] {} WARN  c.x.d.b.l.FieldBasedPropertyDescriptor - Optional integer property [wls.ExtensibleDeployedArtifact.retireTimeout] backed by a Java int field will be treated as a required property.
+2021-08-16 10:41:07.758 [main] {} WARN  c.x.d.b.l.FieldBasedPropertyDescriptor - Optional integer property [jbossdm.CliBasedContainer.port] backed by a Java int field will be treated as a required property.
+2021-08-16 10:41:07.758 [main] {} WARN  c.x.d.b.l.FieldBasedPropertyDescriptor - Optional integer property [jbossdm.CliBasedContainer.daemonConnectTimeout] backed by a Java int field will be treated as a required property.
+2021-08-16 10:41:07.951 [main] {} WARN  c.x.d.b.l.FieldBasedPropertyDescriptor - Optional integer property [glassfish.CliBasedContainer.port] backed by a Java int field will be treated as a required property.
+2021-08-16 10:41:08.524 [main] {} WARN  c.x.d.b.l.ClassBasedLocalDescriptor - Not inheriting ControlTask [was.BaseCluster.create] on [was.DynamicCluster]
+2021-08-16 10:41:08.782 [main] {} INFO  c.x.d.b.l.generator.TypeGenerators - Executing provision-templates
+2021-08-16 10:41:09.084 [main] {} INFO  c.x.d.b.l.LocalGlobalContextManager - Could not find 'centralConfiguration\type-defaults.properties', continuing without loading defaults
+2021-08-16 10:41:09.252 [main] {} INFO  com.xebialabs.deployit.setup.Setup - The DescriptorRegistry has been booted
+2021-08-16 11:00:04.062 [main] {} INFO  c.x.deployit.util.DeployitKeyStore - Creating key store in C:\Users\IB\Desktop\Cours\FormationXLDeploy\xl-deploy\xl-deploy-10.2.1-server\conf\repository-keystore.jceks
+2021-08-16 11:00:04.218 [main] {} INFO  a.d.c.c.d.InitialCentralConfigSetup$ - Copying central configuration files if necessary.
+2021-08-16 11:00:21.124 [main] {} INFO  com.xebialabs.plugin.Xlp$ - Initializing xl plugins with extension .xldp in folders C:\Users\IB\Desktop\Cours\FormationXLDeploy\xl-deploy\xl-deploy-10.2.1-server\hotfix\plugins,C:\Users\IB\Desktop\Cours\FormationXLDeploy\xl-deploy\xl-deploy-10.2.1-server\plugins\__local__,C:\Users\IB\Desktop\Cours\FormationXLDeploy\xl-deploy\xl-deploy-10.2.1-server\plugins\xld-official
+2021-08-16 11:00:24.986 [main] {} INFO  c.x.d.p.j.t.JbossArchivesDriverService - Registering 'sar', 'rar', 'har' and 'aop' as archives available for placeholder replacement.
+2021-08-16 11:00:24.999 [main] {} INFO  c.x.d.p.j.u.JbossArchivesDriverService - Registering 'sar', 'rar', 'har' and 'aop' as archives available for placeholder replacement.
+2021-08-16 11:00:25.036 [main] {} INFO  c.x.deployit.DeployitBootstrapper - Starting up Jython engine (might take a while)...
+2021-08-16 11:00:28.073 [main] {} INFO  c.x.deployit.DeployitBootstrapper - Jython engine loaded [2.7.2]
+2021-08-16 11:00:28.249 [main] {} INFO  c.xebialabs.deployit.XLDeployServer - Preparing configuration files before booting the application
+2021-08-16 11:00:39.424 [background-preinit] {} INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator %s
+2021-08-16 11:00:42.437 [main] {} INFO  c.x.d.ApplicationBootstrapper$ - The following profiles are active: artifact-resolver,client,cluster,command-whitelist,config-server,defaults,jmx,metrics,native,oidc,plugins,reporting,repository,satellite,secret-complexity,server,task,websockets
+2021-08-16 11:00:49.481 [main] {} WARN  o.s.b.c.p.PropertySourcesDeducer - Multiple PropertySourcesPlaceholderConfigurer beans registered [propertySourcesPlaceholderConfigurer, sourcesConfigurer], falling back to Environment
+2021-08-16 11:00:49.580 [main] {} ERROR com.zaxxer.hikari.HikariConfig - Failed to load driver class  from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@46fbb2c1
+2021-08-16 11:00:49.583 [main] {} WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.xebialabs.deployit.core.config.SqlConfiguration': Invocation of init method failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reportingDataSource' defined in com.xebialabs.deployit.core.config.SqlConfiguration: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Circular reference involving containing bean 'com.xebialabs.deployit.core.config.SqlConfiguration' - consider declaring the factory method as static for independence from its containing instance. Factory method 'reportingDataSource' threw exception; nested exception is java.lang.RuntimeException: Failed to load driver class  in either of HikariConfig class loader or Thread context classloader
+2021-08-16 11:00:49.652 [main] {} ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.xebialabs.deployit.core.config.SqlConfiguration': Invocation of init method failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reportingDataSource' defined in com.xebialabs.deployit.core.config.SqlConfiguration: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Circular reference involving containing bean 'com.xebialabs.deployit.core.config.SqlConfiguration' - consider declaring the factory method as static for independence from its containing instance. Factory method 'reportingDataSource' threw exception; nested exception is java.lang.RuntimeException: Failed to load driver class  in either of HikariConfig class loader or Thread context classloader
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:422)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.registerBeanPostProcessors(PostProcessorRegistrationDelegate.java:258)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:762)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:567)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339)
+	at com.xebialabs.deployit.ApplicationBootstrapper$.main(ApplicationBootstrapper.scala:37)
+	at com.xebialabs.deployit.ApplicationBootstrapper.main(ApplicationBootstrapper.scala)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reportingDataSource' defined in com.xebialabs.deployit.core.config.SqlConfiguration: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Circular reference involving containing bean 'com.xebialabs.deployit.core.config.SqlConfiguration' - consider declaring the factory method as static for independence from its containing instance. Factory method 'reportingDataSource' threw exception; nested exception is java.lang.RuntimeException: Failed to load driver class  in either of HikariConfig class loader or Thread context classloader
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:362)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:334)
+	at com.xebialabs.deployit.core.config.SqlConfiguration$$EnhancerBySpringCGLIB$$2a09a49.reportingDataSource(<generated>)
+	at com.xebialabs.deployit.core.config.SqlConfiguration.initializeReportingDatabase(SqlConfiguration.scala:149)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Circular reference involving containing bean 'com.xebialabs.deployit.core.config.SqlConfiguration' - consider declaring the factory method as static for independence from its containing instance. Factory method 'reportingDataSource' threw exception; nested exception is java.lang.RuntimeException: Failed to load driver class  in either of HikariConfig class loader or Thread context classloader
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.lambda$instantiate$2(ConstructorResolver.java:648)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 47 common frames omitted
+Caused by: java.lang.RuntimeException: Failed to load driver class  in either of HikariConfig class loader or Thread context classloader
+	at com.zaxxer.hikari.HikariConfig.setDriverClassName(HikariConfig.java:491)
+	at com.xebialabs.deployit.core.config.SqlConfiguration$.hikariConfig(SqlConfiguration.scala:184)
+	at com.xebialabs.deployit.core.config.SqlConfiguration$.hikariDataSource(SqlConfiguration.scala:171)
+	at com.xebialabs.deployit.core.config.SqlConfiguration.reportingDataSource(SqlConfiguration.scala:73)
+	at com.xebialabs.deployit.core.config.SqlConfiguration$$EnhancerBySpringCGLIB$$2a09a49.CGLIB$reportingDataSource$17(<generated>)
+	at com.xebialabs.deployit.core.config.SqlConfiguration$$EnhancerBySpringCGLIB$$2a09a49$$FastClassBySpringCGLIB$$b90bfe4e.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.xebialabs.deployit.core.config.SqlConfiguration$$EnhancerBySpringCGLIB$$2a09a49.reportingDataSource(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 50 common frames omitted

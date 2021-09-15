@@ -1,0 +1,118 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.engine.api.dto.SelectedDeployment</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>Selected Deployment</h1>
+The Deployment information and selected deployable ids are rendered in XML as a <code>&lt;selectedDeployment&gt;</code> element.
+
+<h3>Child elements</h3>
+
+<dl>
+<dt>&lt;mapping-for-deployables&gt;</dt>
+<dd>The <code>&ltmapping-for-deployables</code> element contains a list of string denoting the deployable ids being deployed, upgraded or undeployed.
+</dd>
+
+<dt>&lt;deployment&gt;</dt>
+<dd>Contains deployment information as described in <a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>.
+</dd>
+
+
+<h2>Validation messages</h2>
+
+<p>The XL Deploy Server may return <i>validated</i> CIs. The XML of the CI has then been enhanced with
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html#validation-messages"><code>&lt;validation-messages&gt;</code></a>. 
+These elements are metadata about the CI and are not considered as ordinary properties. 
+
+
+<h2>Examples</h2>
+
+<p>
+Request to <a href="com.xebialabs.deployit.engine.api.DeploymentService.html#/deployment/selected/deployables:POST">/selected/deployables</a> call to server.
+It contains the DeployedApplication CI, that contains the properties for application to be deployed,
+the available deployables and the containers they can be deployed to as well as a list of deployables to consid
+</p>
+
+<pre>
+
+&lt;selectedDeployment&gt;
+  &lt;for-deployables&gt;
+    &lt;id&gt;Applications/AnimalZoo-ear/1.0/AnimalZooBE&lt;id&gt;
+    &lt;id&gt;Applications/AnimalZoo-ear/1.0/AnimalZooFE&lt;id&gt;
+  &lt;/for-deployables&gt;
+  &lt;deployment type="INITIAL"&gt;
+    &lt;application&gt;
+      &lt;udm.DeployedApplication id="Environments/0hostEnv0/AnimalZoo-ear"&gt;
+        &lt;version ref="Applications/AnimalZoo-ear/1.0"/&gt;
+        &lt;environment ref="Environments/0hostEnv0"/&gt;
+        &lt;deployeds/&gt;
+        &lt;orchestrator&gt;default&lt;/orchestrator&gt;
+      &lt;/udm.DeployedApplication&gt;
+    &lt;/application&gt;
+    &lt;deployeds/&gt;
+    &lt;deployables&gt;
+      &lt;ci ref="Applications/AnimalZoo-ear/1.0/AnimalZooBE" type="test-v3.DummyEar"/&gt;
+      &lt;ci ref="Applications/AnimalZoo-ear/1.0/AnimalZooFE" type="test-v3.DummyEar"/&gt;
+      &lt;ci ref="Applications/AnimalZoo-ear/1.0/AnimalZooWeb" type="test-v3.DummyWar"/&gt;
+    &lt;/deployables&gt;
+    &lt;containers&gt;
+      &lt;ci ref="Infrastructure/Host-with-hostServer" type="test-v3.DummyHost"/&gt;
+      &lt;ci ref="Infrastructure/hostServer0" type="test-v3.DummyJeeServer"/&gt;
+    &lt;/containers&gt;
+  &lt;/deployment&gt;
+&lt;selectedDeployment&gt;
+</pre>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

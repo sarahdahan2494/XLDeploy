@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="icon" type="image/ico" href="https://docs.collab.net/images/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>XL Satellite Reference 10.2.x</title>
+<meta property="og:title" content="XL Satellite Reference 10.2.x" />
+<meta name="description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<meta property="og:description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<meta property="og:site_name" content="Digital.ai documentation" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@xebialabs" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "headline": "XL Satellite Reference 10.2.x",
+    "description": "Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.",
+    "logo": "https://docs.xebialabs.com/images/logos/xebialabs-standard.png"
+  }
+</script>
+
+<link type="text/css" rel="stylesheet" media="all" href="layout.css" />
+<link type="text/css" rel="stylesheet" media="all" href="ci-reference-api.css" />
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.tableofcontents.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("ol#toc").tableOfContents("body", { topLinks: false, startLevel: 1 });
+
+        //remove the toc if it is empty
+        if($("ol#toc").text().replace(/\n/g, '') == ''){
+            $("ol#toc").remove();
+        }
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32396304-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+    <div id="Main_container"><!--main container start here-->
+
+        <div id="header"><!--header start here-->
+           	<div class="cleardiv"></div>
+
+            <div id="menubar"><!--Navigation start here-->
+           	    <span class="logo">
+                    <a href="/">
+                        <img src="https://docs.xebialabs.com/static/logo-93f4fb56dc9f6018c2cc5109b7866daf.svg" alt="Digital.ai" height="50" border="0" />
+                    </a>
+                </span>
+           	    <div class="clear-block block block-nice_menus firstlast" id="block-nice_menus-1"></div>
+            </div>
+
+        </div>  <!--header ends here-->
+
+        <div class="cleardiv"></div>
+
+        <div id="main_white_bg" ><!-- main content start -->
+            <!-- <div id="breadcrumb">
+                <ul>
+                    <li><a href="/index.html">Product Docs</a></li>
+                    <li>&nbsp;&gt;&nbsp;</li>
+                    <li><a href="javascript:void(0)" class="active">XL Satellite Reference 10.2.x</a></li>
+                </ul>
+            </div> -->
+
+
+            <div id="product-doc-height">
+                <h1>XL Satellite Reference 10.2.x</h1>
+            </div>
+
+            <div class="toccol"><!--right column start here-->
+                <ol id="toc"></ol>
+            </div><!--right column ends here-->
+
+            <div class="leftcol"><!--left column start here-->
+                <div id="start-listing">
+                    <p>The XL Deploy satellite module lets you to execute deployments on remote data centers. It includes:</p>
+<ul>
+<li>An efficient system for transferring files</li>
+<li>Executing deployment tasks transparently on satellite servers</li>
+<li>Light process execution on data centers</li>
+<li>Secure communication between XL Deploy and satellite servers based on Transport Layer Security (TLS)</li>
+</ul>
+<p>This document provides information that is specific to this version of the satellite module. For general information, refer to <a href="/xl-deploy/concept/getting-started-with-the-satellite-module.html">Getting started with the satellite module</a>.</p>
+<div class="ci-reference">
+    <h2 class="ci-toc-category">CI Reference</h2>
+    <h3 class="ci-details-title">Configuration Item Overview</h3>
+    
+    
+<h4 class="ci-toc-category">Containers</h4>
+    <table class="ci-toc">
+        <tr class="odd ci-toc-header">
+            <th>CI</th><th>Description</th>
+        </tr>
+        <tr class="even">
+            <td><a href="#xl.Satellite">xl.Satellite</a></td>
+            <td>XL satellite configuration item.</td>
+        </tr>
+        <tr class="odd">
+            <td><a href="#xl.SatelliteGroup">xl.SatelliteGroup</a></td>
+            <td>XL satellite group configuration item.</td>
+        </tr>
+        
+    </table>    
+    
+    <h3 class="ci-details-title">Configuration Item Details</h3>
+    <a id="xl.Satellite"></a>
+    <h4 class="ci-detail-title">xl.Satellite</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                udm.BaseContainer &gt;&gt; udm.BaseConfigurationItem
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Container, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">XL satellite configuration item.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">address</span><span>: </span><span class="ci-property-kind">STRING</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Address where the satellite can be reached.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">protocolPort</span><span>: </span><span class="ci-property-kind">INTEGER</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Port where the satellite is listening.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">encrypted</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Enable encrypted communication.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, only deployables with the same tag will be automatically mapped to this container.</div>
+            </td>
+        </tr>
+    </table>    
+    
+    <hr/>
+    <a id="xl.SatelliteGroup"></a>
+    <h4 class="ci-detail-title">xl.SatelliteGroup</h4>
+    <table class="ci-relations-table" summary="CI relations">
+        <tr>
+            <th>Type&nbsp;Hierarchy</th><td>
+                <a href="#xl.Satellite">xl.Satellite</a> &gt;&gt; udm.BaseContainer &gt;&gt; udm.BaseConfigurationItem
+            </td>
+        </tr>
+        <tr>
+            <th>Interfaces</th><td>
+                udm.Container, udm.Taggable
+            </td>
+        </tr>
+    </table>
+    <p class="ci-description">XL satellite group configuration item.</p>
+    
+
+    <table class="ci-table" summary="Public properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Public properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">satellites</span><span>: </span><span class="ci-property-kind">
+                        SET_OF_CI&lt;<a href="#xl.Satellite">xl.Satellite</a>&gt;
+                    </span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Satellites</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">tags</span><span>: </span><span class="ci-property-kind">SET_OF_STRING</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">If set, only deployables with the same tag will be automatically mapped to this container.</div>
+            </td>
+        </tr>
+    </table>    
+
+    <table class="ci-table" summary="Hidden properties">
+        <tr class="odd ci-prop-header">
+            <th>&nbsp;</th><th>&nbsp;</th><th>Hidden properties</th>
+        </tr>
+        <tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">address</span><span>: </span><span class="ci-property-kind">STRING</span>&nbsp;=&nbsp;<span class="ci-property-default">none</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Address where the satellite can be reached.</div>
+            </td>
+        </tr><tr class="odd">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon required" title="Required property">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">protocolPort</span><span>: </span><span class="ci-property-kind">INTEGER</span>
+                </div>
+            </td>
+        </tr><tr class="odd">
+            <td/><td/><td>
+                <div class="ci-property-desc">Port where the satellite is listening.</div>
+            </td>
+        </tr><tr class="even">
+            <td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td class="icon-cell">
+                <div class="icon">&nbsp;</div>
+            </td><td style="width: 100%">
+                <div class="ci-property-info">
+                    <span class="ci-property-name">encrypted</span><span>: </span><span class="ci-property-kind">BOOLEAN</span>
+                </div>
+            </td>
+        </tr><tr class="even">
+            <td/><td/><td>
+                <div class="ci-property-desc">Enable encrypted communication.</div>
+            </td>
+        </tr>
+    </table>    
+    <hr/>
+</div>
+                </div><!--left column ends here-->
+            </div>
+
+            <div class="cleardiv"></div>
+            <div class="push"></div>
+        </div>  <!-- main content Ends -->
+    </div><!--main container start here-->
+    <div class="cleardiv"></div>
+    <div class="footer"><!--footer section Start here-->
+        <div class="footer-border"></div>
+        <div class="footerbottom">
+            <div id="block-block-5" class="clear-block block block-block first">
+                <div class="content">
+                        <div>
+        <span class="footer-msg">Copyright 2021. Digital.ai, Inc. All rights reserved</span>
+    </div>
+
+                </div>
+            </div>
+
+        </div><!--footer section ends here--><div class="footer-border"></div>
+    </div>
+
+</div><!-- main page ends -->
+</body></html>
+

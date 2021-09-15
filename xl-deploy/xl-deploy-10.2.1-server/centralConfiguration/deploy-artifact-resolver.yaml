@@ -1,0 +1,31 @@
+deploy.artifact:
+  resolver:
+    http:
+      ignoreMissingArtifact: false
+    maven:
+      ignoreMissingArtifact: false
+      work-dir: work
+      repositories:
+        - id: central
+          url: "https://repo.maven.apache.org/maven2/"
+          authentication:
+            username: deployer
+            password: secret
+            privatekey: somekey
+            passphrase: keysecret
+          proxy:
+            host: proxy.host.net
+            port: 80
+            username: proxyuser
+            password: proxypass
+          releases:
+            enabled: false
+            checksumPolicy: fail
+            updatePolicy: "daily"
+          Snapshots:
+            enabled: false
+            checksumPolicy: warn
+            updatePolicy: "daily"
+        - id: local
+          name: Local test repository
+          url: "file:out/test/maven-resolver/repository"

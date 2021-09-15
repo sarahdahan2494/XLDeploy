@@ -1,0 +1,237 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.plugin.api.reflect.Descriptor</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>Type Descriptor</h1>
+
+Describes a type in the XL Deploy type system.
+A descriptor is rendered in XML as a <code>&lt;descriptor></code> element containing attributes and child elements. Here's a breakdown of the structure.
+
+<h2>The <code>&lt;descriptor></code> element</h2>
+
+<h3>Attributes</h3>
+<dl>
+<dt>type</dt>
+<dd>The name of the type. A type name consists of a package name followed by a dot and then the actual name. For example: <code>core.Directory</code></dd>
+
+<dt>deployableType</dt>
+<dd>The name of the deployable type. Only applicable for deployeds, the deployable type refers the environment-indendent CI that created this deployed.</dd>
+
+<dt>containerType</dt>
+<dd>The name of the container type. Only applicable for deployeds, the container type refers to type of container this deployed can be deployed to.</dd>
+
+<dt>virtual</dt>
+<dd>Whether this type is a virtual type. (Boolean)</dd>
+
+<dt>inspectable</dt>
+<dd>Whether this type supports inspection. (Boolean)</dd>
+
+<dt>rooted</dt>
+<dd>The root node in the repository this type can be created under. If not present, this type can't be created directly under a root node. 
+Possible values: <code>Applications</code>, <code>Environments</code> or <code>Infrastructure</code></dd>
+</dl>
+
+<h3>Child elements</h3>
+<dl>
+<dt>&lt;description></dt>
+<dd>Contains a textual description of this type.</dd>
+
+<dt>&lt;property-descriptors></dt>
+<dd>The properties of this type. Contains a list of <a href="#property-descriptor"><code>&lt;property-descriptor></code></a> elements.</dd>
+
+<dt>&lt;control-tasks></dt>
+<dd>The control tasks exposed by this type. Contains a list of <a href="#control-task"><code>&lt;control-task></code></a> elements.</dd>
+
+<dt>&lt;interfaces></dt>
+<dd>The interfaces implemented by this type. Contains a list of <code>&lt;#interface></code> elements, each of which contains a single type name.</dd>
+
+<dt>&lt;superTypes></dt>
+<dd>The supertype chain of this type. Contains a list of <code>&lt;#superType></code> elements, each of which contains a single type name.</dd>
+</dl>
+
+<h3>Type descriptor example</h3>
+<pre>
+&lt;descriptor type="overthere.SshHost" virtual="false" root="Infrastructure">
+  &lt;description>A machine that can be connected to using ssh.&lt;/description>
+  &lt;property-descriptors>
+    ...
+  &lt;/property-descriptors>
+  &lt;control-tasks>
+    &lt;control-task name="checkConnection" fqn="overthere.SshHost.checkConnection" description="Check connection"/>
+  &lt;/control-tasks>
+  &lt;interfaces>
+    &lt;interface>udm.Taggable&lt;/interface>
+    &lt;interface>udm.ConfigurationItem&lt;/interface>
+    &lt;interface>udm.Container&lt;/interface>
+    &lt;interface>overthere.HostContainer&lt;/interface>
+  &lt;/interfaces>
+  &lt;superTypes>
+    &lt;superType>overthere.Host&lt;/superType>
+    &lt;superType>udm.BaseContainer&lt;/superType>
+    &lt;superType>udm.BaseConfigurationItem&lt;/superType>
+  &lt;/superTypes>
+&lt;/descriptor>
+</pre>
+
+<!--  Property descriptor -->
+<h2>
+<a id="property-descriptor">The <code>&lt;property-descriptor></code> element</a>
+</h2>
+Describes a property of a XL Deploy type.
+
+<h3>Attributes</h3>
+<dl>
+<dt>name</dt>
+<dd>The name of the property.</dd>
+
+<dt>fqn</dt>
+<dd>The fully qualified name of the property. This is the type name followed by a dot and then the property name. For example: <code>overthere.SshJumpstation.port</code></dd>
+
+<dt>label</dt>
+<dd>Label text for use in the UI.</dd>
+
+<dt>kind</dt>
+<dd>The property type. Possible values: <code>BOOLEAN</code>, <code>INTEGER</code>, <code>STRING</code>, <code>ENUM</code>, <code>CI</code>,
+ <code>SET_OF_STRING</code>, <code>SET_OF_CI</code>, <code>LIST_OF_STRING</code>, <code>LIST_OF_CI</code> or <code>MAP_STRING_STRING</code></dd>
+
+<dt>description</dt>
+<dd>Textual description of the property.</dd>
+
+<dt>category</dt>
+<dd>The category of this property. The UI groups all properties in the same category into a tab of their own.</dd>
+
+<dt>asContainment</dt>
+<dd>Indicates a parent / child relationship (Boolean). Only applicable for properties that refer to other CIs. If <code>asContainment</code> is set to <code>true</code>
+and the property is of kind <code>CI</code> then we are referring to the parent of this CI. If the kind is <code>LIST_OF_CI</code> or <code>SET_OF_CI</code>, then this CI 
+is the parent and this property refers to its children.</dd>
+
+<dt>required</dt>
+<dd>Whether this property is required (Boolean).</dd>
+
+<dt>inspection</dt>
+<dd>Whether this property is used when doing inspection (Boolean). Only relevant if the CI supports inspection.</dd>
+
+<dt>requiredInspection</dt>
+<dd>Whether this property is required when doing inspection (Boolean). Only relevant if the CI supports inspection.</dd>
+
+<dt>password</dt>
+<dd>Whether this property is a password (Boolean). Only applicable for String property types. Contents maybe masked with '*' character.</dd>
+
+<dt>transient</dt>
+<dd>Whether this property is transient (Boolean). Transient properties will not be stored.</dd>
+
+<dt>size</dt>
+<dd>Indicates the size of the input field in the UI. Possible values: <code>DEFAULT</code>, <code>SMALL</code>, <code>MEDIUM</code> or <code>LARGE</code></dd>
+</dl>
+
+<h3>Child elements</h3>
+<dl>
+<dt>&lt;referencedType></dt>
+<dd>For properties that refer to CIs, this indicates the type of CI to refer to. Contains the name of the referred type as content.</dd>
+
+<dt>&lt;defaultValue></dt>
+<dd>The default value of the property, as String.</dd>
+
+<dt>&lt;enumValues></dt>
+<dd>For properties of type <code>ENUM</code>, this element contains all possible values, wrapped in <code>&lt;string></code> elements.</dd>
+</dl>
+
+<h3>Property descriptor examples</h3>
+Property with enum values:
+<pre>
+&lt;property-descriptor name="os" fqn="overthere.SshHost.os" label="Os" kind="ENUM" description="Operating system" 
+    category="Common" asContainment="false" inspection="false" required="true" requiredInspection="false" 
+    password="false" transient="false" size="DEFAULT">
+  &lt;enumValues>
+    &lt;string>WINDOWS&lt;/string>
+    &lt;string>UNIX&lt;/string>
+  &lt;/enumValues>
+&lt;/property-descriptor>
+</pre>
+
+Property referring to a parent CI
+<pre>
+&lt;descriptor type="udm.CompositePackage" virtual="false">
+  &lt;property-descriptor name="application" fqn="udm.CompositePackage.application" label="Application" kind="CI"
+      asContainment="true" ...>
+    &lt;referencedType>udm.Application&lt;/referencedType>
+  &lt;/property-descriptor>
+  ...
+&lt;/descriptor>
+</pre>
+
+<!--  Control task -->
+<h2> The <a id="control-task"><code>&lt;control-task></code> element</a></h2>
+<h3>Attributes</h3>
+<dl>
+<dt>name</dt>
+<dd>The name of the control task.</dd>
+
+<dt>fqn</dt>
+<dd>The fully qualified name of the control task. This is the type name followed by a dot and then the control task name. For example: <code>overthere.SshJumpstation.checkConnection</code></dd>
+
+<dt>description</dt>
+<dd>Textual description of the control task.</dd>
+</dl>
+
+<h3>Example</h3>
+<pre>
+&lt;control-task name="checkConnection" fqn="overthere.SshJumpstation.checkConnection" description="Check connection"/>
+</pre>
+
+
+
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

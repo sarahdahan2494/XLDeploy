@@ -1,0 +1,112 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.engine.api.execution.BlockState</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>Block State</h1>
+
+<p>
+    BlockState refers to a block object without detailed step information.
+    A block is rendered in XML as a nested <code>&lt;block></code> element containing all child blocks if there are any.<br>
+</p>
+
+<p>
+    A block can either be a composite block, meaning that it has nested child blocks, or a step block, meaning the block contains steps, but no child blocks.
+    The steps information is not included by default, you need to request the stepblock through a rest call that explicitly returns the step block. <br>
+</p>
+
+<p>
+See also <a href="com.xebialabs.deployit.engine.api.execution.StepBlockState.html">StepBlockState</a>, the version of <code>&lt;block></code> that also contains step information.
+</p>
+
+<h2>Attributes</h2>
+
+<dl>
+    <dt>id</dt>
+    <dd>The ID of the block</dd>
+
+    <dt>state</dt>
+    <dd>The current state of the block:	<code>PENDING</code>, <code>EXECUTING</code>, <code>STOPPED</code>
+        , <code>FAILING</code>, <code>FAILED</code>, <code>ABORTING</code>, <code>ABORTED</code> or <code>DONE</code>.
+    </dd>
+
+    <dt>description</dt>
+    <dd>Textual description of the block.</dd>
+
+    <dt>parallel</dt>
+    <dd>Indicates if the block will execute in parallel</dd>
+</dl>
+
+<h2>Child elements</h2>
+<dl>
+    <dt>&lt;block></dt>
+    <dd>The nested blocks.</dd>
+</dl>
+
+<h2>Example</h2>
+
+<pre>
+&lt;block id=&quot;1&quot; state=&quot;PENDING&quot; description=&quot;Deploying AnimalZoo-ear 1.0 on environment 0smallEnv0&quot; parallel=&quot;false&quot;&gt;
+  &lt;block id=&quot;1-1&quot; state=&quot;PENDING&quot; description=&quot;Deploying group default&quot; parallel=&quot;true&quot;&gt;
+    &lt;block id=&quot;1-1-1&quot; state=&quot;PENDING&quot; description=&quot;Deploying on container smallServer0&quot;/&gt;
+    &lt;block id=&quot;1-1-2&quot; state=&quot;PENDING&quot; description=&quot;Deploying on container smallServer1&quot;/&gt;
+  &lt;/block&gt;
+  &lt;block id=&quot;1-2&quot; state=&quot;PENDING&quot; description=&quot;Deploying group 1&quot; parallel=&quot;true&quot;&gt;
+    &lt;block id=&quot;1-2-1&quot; state=&quot;PENDING&quot; description=&quot;Deploying on container tinyServer0&quot;/&gt;
+    &lt;block id=&quot;1-2-2&quot; state=&quot;PENDING&quot; description=&quot;Deploying on container newServer0&quot;/&gt;
+  &lt;/block&gt;
+&lt;/block&gt;
+</pre>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

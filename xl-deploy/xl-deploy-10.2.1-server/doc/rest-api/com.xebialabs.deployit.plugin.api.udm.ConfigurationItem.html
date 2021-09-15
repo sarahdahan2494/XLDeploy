@@ -1,0 +1,161 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.plugin.api.udm.ConfigurationItem</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>ConfigurationItem</h1>
+<p>
+ConfigurationItems (CIs) are rendered in XML as a follows. The XML element name is the name of the CI type, with its ID stored in the <code>id</code> attribute.
+To prevent concurrent updates, the <code>token</code> attribute contains a string that refers to the version of the CI being sent.
+Additionally, there are read-only attributes signifying who originally created the CI, and when; and who last modified it, and when.
+For each property of the CI there's a child element, where the XML element's name is the name of the CI property.
+</p>
+
+<p>
+For example:
+<pre>
+&lt;udm.DeploymentPackage id="Applications/AnimalZoo-ear/1.0"
+                       token="032e29c4-94a0-4bdf-b489-a0c2fe5042a1"
+                       created-by="admin"
+                       created-at="2014-08-18T13:42:09.555+0200"
+                       last-modified-by="admin"
+                       last-modified-at="2014-08-18T13:42:09.555+0200">
+  &lt;application ref="Applications/AnimalZoo-ear"/>
+  &lt;satisfiesReleaseNotes>true&lt;/satisfiesReleaseNotes>
+  &lt;deployables>
+    &lt;ci ref="Applications/AnimalZoo-ear/1.0/AnimalZooWeb"/>
+    &lt;ci ref="Applications/AnimalZoo-ear/1.0/AnimalZooFE"/>
+    &lt;ci ref="Applications/AnimalZoo-ear/1.0/AnimalZooBE"/>
+  &lt;/deployables>
+&lt;/udm.DeploymentPackage>
+</pre>
+</p>
+
+<h2>Property types</h2>
+The content of each property element is defined by its type. Here's a list of the possible types in XL Deploy's type system and how they're expressed in XML.
+
+<h3>Simple properties: Boolean, Int, String and Enum</h3>
+The value of the CI property is simply included in the XML element. The possible values for booleans are <code>true</code> or <code>false</code>.
+<pre>
+&lt;dummy.MyType id="...>
+  &lt;myBoolean>true&lt;/myBoolean>
+  &lt;myInt>23&lt;/myInt>
+  &lt;myString>XL Deploy&lt;/myString>
+  &lt;myEnum>TELNET&lt;/myEnum>
+&lt;/dummy.MyType id="...>
+</pre>
+
+<h3>CI reference</h3>
+A reference to another CI has the ID of the referred CI in its <code>ref</code> attribute. The content is empty. 
+<pre>
+&lt;myCI ref="Infrastructure/LocalHost/>
+</pre>
+
+<h3>List and Sets</h3>
+Lists and Sets can refer to either Strings or CIs. In the case of String, for each item in the list (or set), the text is added as a child in <code>&lt;value></code> tags. 
+In the case of CIs, an empty <code>&lt;ci></code> element is added, with an <code>id</code> attribute containing the ID of the referred CI.
+<pre>
+&lt;mySetOfString>
+  &lt;value>value1&lt;/value>
+  &lt;value>value2&lt;/value>
+&lt;/mySetOfString>
+
+&lt;myListOfString>
+  &lt;value>1&lt;/value>
+  &lt;value>2&lt;/value>
+  &lt;value>3&lt;/value>
+&lt;/myListOfString>
+
+&lt;mySetOfCi>
+  &lt;ci ref="Infrastructure/LocalHost"/>
+&lt;/mySetOfCi>
+
+&lt;myListOfCi>
+  &lt;ci ref="Infrastructure/LocalHost"/>
+&lt;/myListOfCi>
+</pre>
+
+<h3>Maps</h3>
+Maps are dictionaries from String to String. For each entry in the map, the XML element for a map property has a child element <code>&lt;entry></code>, 
+where the key is stored in the <code>key</code> attribute and the map value is stored as content.
+<pre>
+&lt;myMapOfStringString>
+  &lt;entry key="key1">value1&lt;/entry>
+  &lt;entry key="key2">value2&lt;/entry>
+&lt;/myMapOfStringString>
+</pre>
+
+<a id="validation-messages"></a>
+<h2>Validation messages</h2>
+<p>For certain operations, the XL Deploy Server may return a <i>validated</i> CI. This is a ConfigurationItem of which the XML has been enhanced with validation messages.
+These message are metadata about the CI and are not considered as ordinary properties. 
+</p>
+<p>
+Validation messages are added in a parent element <code>&lt;validation-messages&gt;</code>
+that has a child element <code>&lt;validation-message&gt;</code> for each message. The <code>&lt;validation-message&gt;</code> element has two attributes: <code>ci</code>, 
+referring to the CI, and <code>property</code> to refer to the property the message is about. The messages itself is stored as content of the
+<code>&lt;validation-message&gt;</code> element. 
+<pre>
+&lt;dummy.MyTest id="Applications/AnimalZoo-ear/"&gt;
+  &lt;validation-messages&gt;
+    &lt;validation-message ci="Applications/AnimalZoo-ear/" property="myInt"&gt;Value is required&lt;/validation-message&gt;
+    &lt;validation-message ci="Applications/AnimalZoo-ear/" property="myCis"&gt;Value is required&lt;/validation-message&gt;
+  &lt;/validation-messages&gt;
+  ...
+&lt;/dummy.MyTest&gt;
+</pre>
+</p>
+
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

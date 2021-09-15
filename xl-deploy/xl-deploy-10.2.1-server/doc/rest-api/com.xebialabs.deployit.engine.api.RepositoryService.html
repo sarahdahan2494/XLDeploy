@@ -1,0 +1,1178 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>RepositoryService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>RepositoryService</h1>
+</div>
+<p>Provides access to the XL Deploy repository.</p>
+<table class="parameter-table">
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/candidate-values:POST">/repository/candidate-values</a>
+</td>
+<td>Find candidate values for a property of a <a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">com.xebialabs.deployit.plugin.api.udm.ConfigurationItem</a>
+.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/repository/ci/new:GET">/repository/ci/new</a>
+</td>
+<td>Composes CI prototype filled in with default values.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/repository/ci/{ID:.+}:GET">/repository/ci/{ID:.+}</a>
+</td>
+<td>Reads a configuration item from the repository.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/ci/{ID:.+}:POST">/repository/ci/{ID:.+}</a>
+</td>
+<td>Creates a new configuration item.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/ci/{ID:.+}:POST">/repository/ci/{ID:.+}</a>
+</td>
+<td>Creates a new artifact CI with data.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/repository/ci/{ID:.+}:PUT">/repository/ci/{ID:.+}</a>
+</td>
+<td>Modifies a configuration item and returns the updated CI if the the update was successful</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/repository/ci/{ID:.+}:PUT">/repository/ci/{ID:.+}</a>
+</td>
+<td>Modifies an artifact (upload new data) and returns the updated artifact if the the update was successful</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/repository/ci/{ID:.+}:DELETE">/repository/ci/{ID:.+}</a>
+</td>
+<td>Deletes a configuration item.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/cis:POST">/repository/cis</a>
+</td>
+<td>Creates multiple configuration items.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/repository/cis:PUT">/repository/cis</a>
+</td>
+<td>Modifies multiple configuration items.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/cis/delete:POST">/repository/cis/delete</a>
+</td>
+<td>Deletes multiple configuration items from the repository.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/cis/read:POST">/repository/cis/read</a>
+</td>
+<td>Reads multiple configuration items from the repository.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/copy/{ID:.+}:POST">/repository/copy/{ID:.+}</a>
+</td>
+<td>Copy a configuration item in the repository.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/repository/exists/{ID:.+}:GET">/repository/exists/{ID:.+}</a>
+</td>
+<td>Checks if a configuration item exists.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/repository/is-secure/{ID:.+}:GET">/repository/is-secure/{ID:.+}</a>
+</td>
+<td>Checks if CI is a secure CI</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/move/{ID:.+}:POST">/repository/move/{ID:.+}</a>
+</td>
+<td>Moves a configuration item in the repository.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/repository/query:GET">/repository/query</a>
+</td>
+<td>Retrieves configuration items by way of a query.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/rename/{ID:.+}:POST">/repository/rename/{ID:.+}</a>
+</td>
+<td>Changes the name of a configuration item in the repository.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/repository/v2/query:GET">/repository/v2/query</a>
+</td>
+<td>Retrieves configuration items by way of a query.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/repository/v3/query:GET">/repository/v3/query</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/repository/validate:POST">/repository/validate</a>
+</td>
+<td>Validate the configuration items, returning any validation errors found.</td>
+</tr>
+</table>
+<hr/>
+<a id="/repository/candidate-values:POST"></a>
+<h2 class="resource-header">
+POST /repository/candidate-values</h2>
+<p></p>
+<div>Find candidate values for a property of a <a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">com.xebialabs.deployit.plugin.api.udm.ConfigurationItem</a>
+.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>propertyName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the property name of the <a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">com.xebialabs.deployit.plugin.api.udm.ConfigurationItem</a>
+ for which to find candidate values</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>namePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>a search pattern for the name. This is like the SQL "LIKE"
+            pattern: the character '%' represents any string of zero or
+            more characters, and the character '_' (underscore) represents
+            any single character. Any literal use of these two characters
+            must be escaped with a backslash ('\'). Consequently, any
+            literal instance of a backslash must also be escaped,
+            resulting in a double backslash ('\\').</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>idPattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>a search pattern for the id. This is like the SQL "LIKE"
+            pattern: the character '%' represents any string of zero or
+            more characters, and the character '_' (underscore) represents
+            any single character. Any literal use of these two characters
+            must be escaped with a backslash ('\'). Consequently, any
+            literal instance of a backslash must also be escaped,
+            resulting in a double backslash ('\\').     * @param page the desired page, in case of a paged query.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>resultsPerPage</td>
+<td>
+<a href="long.html">long</a>
+</td>
+<td>the page size, or <code>-1</code>
+ for no paging.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+</td>
+<td>The <a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">com.xebialabs.deployit.plugin.api.udm.ConfigurationItem</a>
+ for which to find the candidate values</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+ - a list of references to CIs</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/ci/new:GET"></a>
+<h2 class="resource-header">
+GET /repository/ci/new</h2>
+<p></p>
+<div>Composes CI prototype filled in with default values.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>login</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>type</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.reflect.Type.html">Type</a>
+</td>
+<td>the type of the CI</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the CI prototype filled with default values, or a <code>404</code>
+ error code if not found.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/ci/{ID:.+}:GET"></a>
+<h2 class="resource-header">
+GET /repository/ci/{ID:.+}</h2>
+<p></p>
+<div>Reads a configuration item from the repository.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>read</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the CI</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the CI, or a <code>404</code>
+ error code if not found.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/ci/{ID:.+}:POST"></a>
+<h2 class="resource-header">
+POST /repository/ci/{ID:.+}</h2>
+<p></p>
+<div>Creates a new configuration item.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID/path of the new CI.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+</td>
+<td>the data of the CI.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the newly created CI</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/ci/{ID:.+}:POST"></a>
+<h2 class="resource-header">
+POST /repository/ci/{ID:.+}</h2>
+<p></p>
+<div>Creates a new artifact CI with data.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID/path of the new artifact.</td>
+</tr>
+<tr>
+<td>
+<i>Multipart</i>
+</td>
+<td></td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.ArtifactAndData.html">ArtifactAndData</a>
+</td>
+<td>the data of the artifact.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the newly created artifact</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/ci/{ID:.+}:PUT"></a>
+<h2 class="resource-header">
+PUT /repository/ci/{ID:.+}</h2>
+<p></p>
+<div>Modifies a configuration item and returns the updated CI if the the update was successful otherwise returns a <code>409</code>
+ error code if the CI has been updated on the server and you are sending modifications on an old version.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the CI to modify.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+</td>
+<td>the new data of the CI.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the updated CI if update was successful</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/ci/{ID:.+}:PUT"></a>
+<h2 class="resource-header">
+PUT /repository/ci/{ID:.+}</h2>
+<p></p>
+<div>Modifies an artifact (upload new data) and returns the updated artifact if the the update was successful otherwise returns a <code>409</code>
+ error code if the CI has been updated on the server and you are sending modifications on an old version.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the artifact to modify.</td>
+</tr>
+<tr>
+<td>
+<i>Multipart</i>
+</td>
+<td></td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.ArtifactAndData.html">ArtifactAndData</a>
+</td>
+<td>the new data of the artifact.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the updated artifact if update was successful</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/ci/{ID:.+}:DELETE"></a>
+<h2 class="resource-header">
+DELETE /repository/ci/{ID:.+}</h2>
+<p></p>
+<div>Deletes a configuration item.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+<dd>
+<code>import#remove</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the CI to delete.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/repository/cis:POST"></a>
+<h2 class="resource-header">
+POST /repository/cis</h2>
+<p></p>
+<div>Creates multiple configuration items.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+</td>
+<td>the data of the CIs.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+ - the newly created CIs</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/cis:PUT"></a>
+<h2 class="resource-header">
+PUT /repository/cis</h2>
+<p></p>
+<div>Modifies multiple configuration items. Returns <code>409</code>
+ error code if one of the CIs has been updated on the server and you are sending modifications on an old version.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+</td>
+<td>the new data of the CIs.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+ - the updated CIs if the update was successful</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/cis/delete:POST"></a>
+<h2 class="resource-header">
+POST /repository/cis/delete</h2>
+<p></p>
+<div>Deletes multiple configuration items from the repository.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+<dd>
+<code>import#remove</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>the ids of the CIs</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/repository/cis/read:POST"></a>
+<h2 class="resource-header">
+POST /repository/cis/read</h2>
+<p></p>
+<div>Reads multiple configuration items from the repository. Returns a <code>404</code>
+ error code if one of them was not found.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>read</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>the ids of the CIs</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+ - the CIs</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/copy/{ID:.+}:POST"></a>
+<h2 class="resource-header">
+POST /repository/copy/{ID:.+}</h2>
+<p></p>
+<div>Copy a configuration item in the repository. The item as well as all its children are copied to the new location.
+ The parent reflected in the new location, must be of the same type as that of the parent of the item being copied.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the CI to copy</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>newId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the new ID of the copied CI, reflecting the path in the repository.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the copied CI</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/exists/{ID:.+}:GET"></a>
+<h2 class="resource-header">
+GET /repository/exists/{ID:.+}</h2>
+<p></p>
+<div>Checks if a configuration item exists.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the CI to check</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.Boolean.html">Boolean</a>
+ - <code>true</code>
+ if the CI exists, <code>false</code>
+ if not.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/is-secure/{ID:.+}:GET"></a>
+<h2 class="resource-header">
+GET /repository/is-secure/{ID:.+}</h2>
+<p></p>
+<div>Checks if CI is a secure CI</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>id of the CI to check</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.Boolean.html">Boolean</a>
+ - <code>true</code>
+ if the CI is a secure CI, <code>false</code>
+ if not.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/move/{ID:.+}:POST"></a>
+<h2 class="resource-header">
+POST /repository/move/{ID:.+}</h2>
+<p></p>
+<div>Moves a configuration item in the repository.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the CI to move</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>newId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the new ID of the CI, reflecting the path in the repository.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the moved CI</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/query:GET"></a>
+<h2 class="resource-header">
+GET /repository/query</h2>
+<p></p>
+<div>Retrieves configuration items by way of a query. All parameters are
+ optional.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>type</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.reflect.Type.html">Type</a>
+</td>
+<td>the type of the CI</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>parent</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the parent ID of the CI. If set, only the direct children of this CI are searched.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>ancestor</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ancestor ID of the CI. If set, only the subtree of this CI is searched.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>namePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>a search pattern for the name. This is like the SQL "LIKE"
+            pattern: the character '%' represents any string of zero or
+            more characters, and the character '_' (underscore) represents
+            any single character. Any literal use of these two characters
+            must be escaped with a backslash ('\'). Consequently, any
+            literal instance of a backslash must also be escaped,
+            resulting in a double backslash ('\\').</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>lastModifiedBefore</td>
+<td>
+<a href="org.joda.time.DateTime.html">DateTime</a>
+</td>
+<td>look for CIs modified before this date.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>lastModifiedAfter</td>
+<td>
+<a href="org.joda.time.DateTime.html">DateTime</a>
+</td>
+<td>look for CIs modified after this date.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>page</td>
+<td>
+<a href="long.html">long</a>
+</td>
+<td>the desired page, in case of a paged query.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>resultsPerPage</td>
+<td>
+<a href="long.html">long</a>
+</td>
+<td>the page size, or <code>-1</code>
+ for no paging.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+ - a list of references to CIs</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/rename/{ID:.+}:POST"></a>
+<h2 class="resource-header">
+POST /repository/rename/{ID:.+}</h2>
+<p></p>
+<div>Changes the name of a configuration item in the repository.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>repo#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the CI to rename</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>newName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the new name.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html">ConfigurationItem</a>
+ - the renamed CI</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/v2/query:GET"></a>
+<h2 class="resource-header">
+GET /repository/v2/query</h2>
+<p></p>
+<div>Retrieves configuration items by way of a query. All parameters are
+ optional.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>type</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.reflect.Type.html">Type</a>
+</td>
+<td>the type of the CI</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>parent</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the parent ID of the CI. If set, only the direct children of this CI are searched.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>ancestor</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ancestor ID of the CI. If set, only the subtree of this CI is searched.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>namePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>a search pattern for the name. This is like the SQL "LIKE"
+            pattern: the character '%' represents any string of zero or
+            more characters, and the character '_' (underscore) represents
+            any single character. Any literal use of these two characters
+            must be escaped with a backslash ('\'). Consequently, any
+            literal instance of a backslash must also be escaped,
+            resulting in a double backslash ('\\').</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>idPattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>a search pattern for the id. This is like the SQL "LIKE"
+            pattern: the character '%' represents any string of zero or
+            more characters, and the character '_' (underscore) represents
+            any single character. Any literal use of these two characters
+            must be escaped with a backslash ('\'). Consequently, any
+            literal instance of a backslash must also be escaped,
+            resulting in a double backslash ('\\').</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>lastModifiedBefore</td>
+<td>
+<a href="org.joda.time.DateTime.html">DateTime</a>
+</td>
+<td>look for CIs modified before this date.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>lastModifiedAfter</td>
+<td>
+<a href="org.joda.time.DateTime.html">DateTime</a>
+</td>
+<td>look for CIs modified after this date.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>page</td>
+<td>
+<a href="long.html">long</a>
+</td>
+<td>the desired page, in case of a paged query.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>resultsPerPage</td>
+<td>
+<a href="long.html">long</a>
+</td>
+<td>the page size, or <code>-1</code>
+ for no paging.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+ - a list of references to CIs</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/v3/query:GET"></a>
+<h2 class="resource-header">
+GET /repository/v3/query</h2>
+<p></p>
+<div></div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/repository/validate:POST"></a>
+<h2 class="resource-header">
+POST /repository/validate</h2>
+<p></p>
+<div>Validate the configuration items, returning any validation errors found.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+</td>
+<td>The list of configuration items to valdiate.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.udm.ConfigurationItem-List.html">List of ConfigurationItem</a>
+ - The validated configuration items, including any validation messages.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

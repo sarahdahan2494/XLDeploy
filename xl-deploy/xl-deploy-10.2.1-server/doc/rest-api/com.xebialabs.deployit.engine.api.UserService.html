@@ -1,0 +1,285 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>UserService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>UserService</h1>
+</div>
+<p>Manages users in XL Deploy's internal user repository. Use this service only if you're not connected to an external user repository like LDAP.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/user/:GET">/security/user/</a>
+</td>
+<td>Returns the user details without the password.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/security/user/validatePassword:POST">/security/user/validatePassword</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/security/user/{username}:POST">/security/user/{username}</a>
+</td>
+<td>Creates a new user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/security/user/{username}:GET">/security/user/{username}</a>
+</td>
+<td>Returns the user details without the password.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/security/user/{username}:PUT">/security/user/{username}</a>
+</td>
+<td>Changes the password of the indicated user.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/security/user/{username}:DELETE">/security/user/{username}</a>
+</td>
+<td>Deletes the user.</td>
+</tr>
+</table>
+<hr/>
+<a id="/security/user/:GET"></a>
+<h2 class="resource-header">
+GET /security/user/</h2>
+<p></p>
+<div>Returns the user details without the password.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - the details of the user.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/user/validatePassword:POST"></a>
+<h2 class="resource-header">
+POST /security/user/validatePassword</h2>
+<p></p>
+<div></div>
+<dl>
+<dt>Response body</dt>
+<dd>List of PasswordValidationResult</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/user/{username}:POST"></a>
+<h2 class="resource-header">
+POST /security/user/{username}</h2>
+<p></p>
+<div>Creates a new user.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>username</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the login name</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.security.User.html">User</a>
+</td>
+<td>the details of the user, containing username and new password. Username in here should be the same as the username in the URL path.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.security.User.html">User</a>
+ - the created user, without the password.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/user/{username}:GET"></a>
+<h2 class="resource-header">
+GET /security/user/{username}</h2>
+<p></p>
+<div>Returns the user details without the password.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>username</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the login name of the user.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.security.User.html">User</a>
+ - the details of the user.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/security/user/{username}:PUT"></a>
+<h2 class="resource-header">
+PUT /security/user/{username}</h2>
+<p></p>
+<div>Changes the password of the indicated user. Username should be the same as the username in the URL path.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>username</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the login name of the user.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.security.User.html">User</a>
+</td>
+<td>the details of the user, containing username and new password.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/security/user/{username}:DELETE"></a>
+<h2 class="resource-header">
+DELETE /security/user/{username}</h2>
+<p></p>
+<div>Deletes the user.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>security#edit</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>username</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the login name of the user.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

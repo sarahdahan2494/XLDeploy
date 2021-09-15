@@ -1,0 +1,157 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.engine.api.execution.TaskWithBlock</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>Task with block</h1>
+
+TaskWithBlock refers to a task object with block information.
+A task is rendered in XML as a <code>&lt;task></code> element containing attributes and child elements.
+
+<h2>Attributes</h2>
+
+<dl>
+    <dt>id</dt>
+    <dd>The ID of the task</dd>
+
+    <dt>failures</dt>
+    <dd>The total number of failures in this task. It's possible that a step fails multiple times, so this value can be higher than the number of steps.</dd>
+
+    <dt>owner</dt>
+    <dd>The user that owns the task</dd>
+
+    <dt>state</dt>
+    <dd>The current state of the task: <code>PENDING</code>, <code>QUEUED</code>, <code>EXECUTED</code>, <code>EXECUTING</code>, <code>FAILED</code>, <code>FAILING</code>, <code>STOPPED</code>, <code>STOPPING</code>, <code>ABORTED</code>, <code>ABORTING</code>, <code>DONE</code>, <code>CANCELLED</code>, or <code>SCHEDULED</code>.
+</dl>
+
+<h2>Child elements</h2>
+
+<dl>
+    <dt>&lt;activeBlocks></dt>
+    <dd>For an active task, the blocks that are currently being executed.</dd>
+
+    <dt>&lt;description></dt>
+    <dd>Textual description of the task.</dd>
+
+    <dt>&lt;startDate></dt>
+    <dd>The date when the task was started. Format: the <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 profile used in XML</a></dd>
+
+    <dt>&lt;completionDate></dt>
+    <dd>The date when the task was completed. Format: <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 profile used in XML</a></dd>
+
+    <dt>&lt;scheduledDate></dt>
+    <dd>Only included when the task is scheduled. It defines the date when the task was is scheduled. Format: <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 profile used in XML</a></dd>
+
+    <dt>&lt;metadata></dt>
+    <dd>Contains entries from the metadata map. Each entry is an XML element, where the element name is the key of the entry, and the content is the value.
+        Currently supported: <code>application</code>, <code>environment</code> and <code>version</code></dd>
+
+    <dt>&lt;block></dt>
+    <dd>Contains the root block with all the nested blocks. For a detailed description of blocks see <a href="com.xebialabs.deployit.engine.api.execution.BlockState.html">BlockState</a>.</dd>
+
+</dl>
+
+<h2>Example</h2>
+
+<pre>
+&lt;task id=&quot;7c7c1f7b-15dd-4d10-9844-fc6384ee22f7&quot; failures=&quot;0&quot; owner=&quot;admin&quot;&gt;
+  &lt;description&gt;Initial deployment of Environments/0smallEnv0/AnimalZoo-ear&lt;/description&gt;
+  &lt;startDate&gt;2014-01-29T10:53:12.981+0100&lt;/startDate&gt;
+  &lt;activeBlocks&gt;
+    &lt;active&gt;1&lt;/active&gt;
+    &lt;active&gt;1-1&lt;/active&gt;
+    &lt;active&gt;1-1-1&lt;/active&gt;
+    &lt;active&gt;1-1-2&lt;/active&gt;
+  &lt;/activeBlocks&gt;
+  &lt;metadata&gt;
+    &lt;application&gt;AnimalZoo-ear&lt;/application&gt;
+    &lt;environment&gt;0smallEnv0&lt;/environment&gt;
+    &lt;taskType&gt;INITIAL&lt;/taskType&gt;
+    &lt;environment_id&gt;Environments/0smallEnv0&lt;/environment_id&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+  &lt;/metadata&gt;
+  &lt;block id=&quot;1&quot; state=&quot;EXECUTING&quot; description=&quot;Deploying AnimalZoo-ear 1.0 on environment 0smallEnv0&quot; parallel=&quot;false&quot;&gt;
+    &lt;block id=&quot;1-1&quot; state=&quot;EXECUTING&quot; description=&quot;Deploying group default&quot; parallel=&quot;true&quot;&gt;
+      &lt;block id=&quot;1-1-1&quot; state=&quot;EXECUTING&quot; description=&quot;Deploying on container smallServer0&quot;/&gt;
+      &lt;block id=&quot;1-1-2&quot; state=&quot;EXECUTING&quot; description=&quot;Deploying on container smallServer1&quot;/&gt;
+    &lt;/block&gt;
+    &lt;block id=&quot;1-2&quot; state=&quot;PENDING&quot; description=&quot;Deploying group 1&quot; parallel=&quot;true&quot;&gt;
+       &lt;block id=&quot;1-2-1&quot; state=&quot;PENDING&quot; description=&quot;Deploying on container tinyServer0&quot;&gt;
+         &lt;block id=&quot;1-2-2&quot; state=&quot;PENDING&quot; description=&quot;Deploying on container newServer0&quot;&gt;
+           &lt;step failures=&quot;0&quot; state=&quot;DONE&quot;&gt;
+             &lt;description&gt;
+              Create Test Step (# 0) is and going to wait for 100ms and generate 1KB of (Lorum ipsum) log file
+             &lt;/description&gt;
+             &lt;startDate&gt;2015-07-31T09:52:49.115+0000&lt;/startDate&gt;
+             &lt;completionDate&gt;2015-07-31T09:52:49.216+0000&lt;/completionDate&gt;
+             &lt;log&gt;Lorem ipsum&lt;/log&gt;
+             &lt;metadata/&gt;
+           &lt;/step&gt;
+           &lt;step failures=&quot;0&quot; state=&quot;DONE&quot;&gt;
+             &lt;description&gt;
+               Create Test Step (# 0) is and going to wait for 100ms and generate 1KB of (Lorum ipsum) log file
+             &lt;/description&gt;
+             &lt;startDate&gt;2015-07-31T09:52:49.217+0000&lt;/startDate&gt;
+             &lt;completionDate&gt;2015-07-31T09:52:49.318+0000&lt;/completionDate&gt;
+             &lt;log&gt;Lorem ipsum&lt;/log&gt;
+             &lt;metadata/&gt;
+           &lt;/step&gt;
+         &lt;/block&gt;
+       &lt;/block&gt;
+    &lt;/block&gt;
+  &lt;/block&gt;
+&lt;/task&gt;
+</pre>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

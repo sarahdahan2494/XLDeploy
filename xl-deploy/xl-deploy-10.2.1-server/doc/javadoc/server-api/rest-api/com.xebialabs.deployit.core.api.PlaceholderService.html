@@ -1,0 +1,685 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>PlaceholderService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>PlaceholderService</h1>
+</div>
+<p>Information about placeholders</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/placeholder/archived/environment/{ID:.+}:GET">/placeholder/archived/environment/{ID:.+}</a>
+</td>
+<td>Gets historic resolved placeholder values on an environment, optionally restricted to finding those used in a specific deployment
+ task, optionally filtered by (parts of) the key name, the placeholder value, and/or deployed application name, dictionary
+ name, and/or host name that the value is restricted to.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/placeholder/defined:GET">/placeholder/defined</a>
+</td>
+<td>Find all defined placeholders, optionally filtered by (exact) key, (part of) the application ID and (part of) the
+ application name.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/placeholder/defined/by-dictionary:GET">/placeholder/defined/by-dictionary</a>
+</td>
+<td>Find placeholders, optionally filtered by (exact) key, or (part of) the value, dictionary ID and/or dictionary name
+ Returns whether it is encrypted; if it isn't and the user has read access, provides its value; and tells which dictionary
+ defines its value</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/placeholder/defined/by-environment:GET">/placeholder/defined/by-environment</a>
+</td>
+<td>Find placeholders, optionally filtered by (exact) key, or (part of) the environment name or ID</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/placeholder/defined/names:GET">/placeholder/defined/names</a>
+</td>
+<td>Find placeholders by (part of their) key.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/placeholder/environment/{ID:.+}:GET">/placeholder/environment/{ID:.+}</a>
+</td>
+<td>Gets resolved placeholder values, as far as the user has read permissions on them, on an environment, optionally filtered
+ by (parts of) the key name, the placeholder value, and/or deployed application name, dictionary name, and/or host name that
+ the value is restricted to.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/placeholder/host/{ID:.+}:GET">/placeholder/host/{ID:.+}</a>
+</td>
+<td>Gets resolved placeholder values for placeholders that have been restricted to a host, optionally filtered
+ by (parts of) the key name, the placeholder value, and/or deployed application name, dictionary name, and/or host name that
+ the value is restricted to.</td>
+</tr>
+</table>
+<hr/>
+<a id="/placeholder/archived/environment/{ID:.+}:GET"></a>
+<h2 class="resource-header">
+GET /placeholder/archived/environment/{ID:.+}</h2>
+<p></p>
+<div>Gets historic resolved placeholder values on an environment, optionally restricted to finding those used in a specific deployment
+ task, optionally filtered by (parts of) the key name, the placeholder value, and/or deployed application name, dictionary
+ name, and/or host name that the value is restricted to.
+
+ Returns information about the placeholder key, value (if readable), whether it is an encrypted entry, and restrictions</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The environment to query the resolved placeholder values against</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>key</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) placeholder key to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>value</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the placeholder value to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the deployed application name that the placeholder should be restricted to</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>dictionaryName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the dictionary name that defines the placeholder</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>hostName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the host name that the placeholder is restricted to</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>taskId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) The task ID for which to find used placeholders</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of ResolvedPlaceholderView - a list of <b>com.xebialabs.deployit.core.api.dto.ResolvedPlaceholderView</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/placeholder/defined:GET"></a>
+<h2 class="resource-header">
+GET /placeholder/defined</h2>
+<p></p>
+<div>Find all defined placeholders, optionally filtered by (exact) key, (part of) the application ID and (part of) the
+ application name.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>key</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) the exact key to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>idPattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the application ID to filter on</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>namePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the application name to filter on</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of DefinedPlaceholderView - a list of <b>com.xebialabs.deployit.core.api.dto.DefinedPlaceholderView</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/placeholder/defined/by-dictionary:GET"></a>
+<h2 class="resource-header">
+GET /placeholder/defined/by-dictionary</h2>
+<p></p>
+<div>Find placeholders, optionally filtered by (exact) key, or (part of) the value, dictionary ID and/or dictionary name
+ Returns whether it is encrypted; if it isn't and the user has read access, provides its value; and tells which dictionary
+ defines its value</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>key</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) The exact placeholder key to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>value</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (Part of) the placeholder value to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>idPattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (Part of) the dictionary ID to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>namePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (Part of) the dictionary name to look for</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of DictionaryWithValueView - a list of <b>com.xebialabs.deployit.core.api.dto.DictionaryWithValueView</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/placeholder/defined/by-environment:GET"></a>
+<h2 class="resource-header">
+GET /placeholder/defined/by-environment</h2>
+<p></p>
+<div>Find placeholders, optionally filtered by (exact) key, or (part of) the environment name or ID</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>key</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) The exact placeholder key to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>idPattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (Part of) the dictionary ID to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>namePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (Part of) the dictionary name to look for</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of DefinedPlaceholderReference - A list of <b>com.xebialabs.deployit.core.api.dto.DefinedPlaceholderReference</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/placeholder/defined/names:GET"></a>
+<h2 class="resource-header">
+GET /placeholder/defined/names</h2>
+<p></p>
+<div>Find placeholders by (part of their) key.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>namePattern</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the key name pattern to match against</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - a list of placeholder key names</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/placeholder/environment/{ID:.+}:GET"></a>
+<h2 class="resource-header">
+GET /placeholder/environment/{ID:.+}</h2>
+<p></p>
+<div>Gets resolved placeholder values, as far as the user has read permissions on them, on an environment, optionally filtered
+ by (parts of) the key name, the placeholder value, and/or deployed application name, dictionary name, and/or host name that
+ the value is restricted to.
+
+ Returns information about the placeholder key, value (if readable), whether it is an encrypted entry, and restrictions</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The environment to query the resolved placeholder values against</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>key</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) placeholder key to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>value</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the placeholder value to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the deployed application name that the placeholder should be restricted to</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>dictionaryName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the dictionary name that defines the placeholder</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>hostName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the host name that the placeholder is restricted to</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of ResolvedPlaceholderView - a list of <b>com.xebialabs.deployit.core.api.dto.ResolvedPlaceholderView</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/placeholder/host/{ID:.+}:GET"></a>
+<h2 class="resource-header">
+GET /placeholder/host/{ID:.+}</h2>
+<p></p>
+<div>Gets resolved placeholder values for placeholders that have been restricted to a host, optionally filtered
+ by (parts of) the key name, the placeholder value, and/or deployed application name, dictionary name, and/or host name that
+ the value is restricted to.
+
+ Returns information about the placeholder key, value (if readable), whether it is an encrypted entry, and restrictions</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>ID</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the host ID to query resolved placeholders against</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>key</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) placeholder key to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>value</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the placeholder value to look for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the deployed application name that the placeholder should be restricted to</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>dictionaryName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the dictionary name that defines the placeholder</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>hostName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the environment name that the placeholder is restricted to</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of ResolvedPlaceholderView - a list of <b>com.xebialabs.deployit.core.api.dto.ResolvedPlaceholderView</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

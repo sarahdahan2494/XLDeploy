@@ -1,0 +1,34 @@
+deploy.cluster:
+  mode: "default"
+  name: "xld-hotstandby-cluster"
+  membership:
+    heartbeat: "10 seconds"
+    ttl: "60 seconds"
+    jdbc:
+      url:
+      username:
+      password:
+      pool-name: "ClusterPool"
+      max-pool-size: 1
+      minimum-idle: 1
+      connection-timeout: "30 seconds"
+      max-life-time: "30 minutes"
+      idle-timeout: "10 minutes"
+      leak-connection-threshold: "15 seconds"
+  akka:
+    remote:
+      artery:
+        canonical:
+          port: 25520
+          hostname:
+    actor:
+      provider: "akka.cluster.ClusterActorRefProvider"
+      loggers:
+        - "akka.event.slf4j.Slf4jLogger"
+      loglevel: "INFO"
+    cluster:
+      auto-down-unreachable-after: "15s"
+      downing-provider-class:
+      custom-downing:
+        stable-after: "10s"
+        down-removal-margin: "10s"

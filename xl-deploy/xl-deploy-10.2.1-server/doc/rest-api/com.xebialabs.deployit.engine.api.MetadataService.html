@@ -1,0 +1,179 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>MetadataService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>MetadataService</h1>
+</div>
+<p>Provides XL Deploy's metadata: available types, permissions and orchestrators.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/metadata/orchestrators:GET">/metadata/orchestrators</a>
+</td>
+<td>Lists all the Orchestrator names that can be used to orchestrate a <a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ done by the <a href="com.xebialabs.deployit.engine.api.DeploymentService.html">DeploymentService</a>
+.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/metadata/permissions:GET">/metadata/permissions</a>
+</td>
+<td>Lists all the <a href="com.xebialabs.deployit.engine.api.security.Permission.html">Permissions</a>
+ that can be granted or revoked.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/metadata/type:GET">/metadata/type</a>
+</td>
+<td>Lists all the <a href="com.xebialabs.deployit.plugin.api.reflect.Descriptor.html">Descriptors</a>
+ of all the types known to the XL Deploy Type System.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/metadata/type/{type}:GET">/metadata/type/{type}</a>
+</td>
+<td>Gets the <a href="com.xebialabs.deployit.plugin.api.reflect.Descriptor.html">Descriptor</a>
+ for a specific type from the XL Deploy Type System.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/metadata/types/inheritance:GET">/metadata/types/inheritance</a>
+</td>
+<td>Creates a map of the parent/child relationships of all the types known to the XL Deploy Type System.</td>
+</tr>
+</table>
+<hr/>
+<a id="/metadata/orchestrators:GET"></a>
+<h2 class="resource-header">
+GET /metadata/orchestrators</h2>
+<p></p>
+<div>Lists all the Orchestrator names that can be used to orchestrate a <a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ done by the <a href="com.xebialabs.deployit.engine.api.DeploymentService.html">DeploymentService</a>
+.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String-List.html">List of String</a>
+ - A List of orchestrator names.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/metadata/permissions:GET"></a>
+<h2 class="resource-header">
+GET /metadata/permissions</h2>
+<p></p>
+<div>Lists all the <a href="com.xebialabs.deployit.engine.api.security.Permission.html">Permissions</a>
+ that can be granted or revoked.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.security.Permission-List.html">List of Permission</a>
+ - A List of <a href="com.xebialabs.deployit.engine.api.security.Permission.html">Permissions</a>
+</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/metadata/type:GET"></a>
+<h2 class="resource-header">
+GET /metadata/type</h2>
+<p></p>
+<div>Lists all the <a href="com.xebialabs.deployit.plugin.api.reflect.Descriptor.html">Descriptors</a>
+ of all the types known to the XL Deploy Type System.
+ Hidden properties are not exposed.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.reflect.Descriptor-List.html">List of Descriptor</a>
+ - A List of <a href="com.xebialabs.deployit.plugin.api.reflect.Descriptor.html">Descriptors</a>
+</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/metadata/type/{type}:GET"></a>
+<h2 class="resource-header">
+GET /metadata/type/{type}</h2>
+<p></p>
+<div>Gets the <a href="com.xebialabs.deployit.plugin.api.reflect.Descriptor.html">Descriptor</a>
+ for a specific type from the XL Deploy Type System.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>type</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.reflect.Type.html">Type</a>
+</td>
+<td>the type to get the descriptor of.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.plugin.api.reflect.Descriptor.html">Descriptor</a>
+ - The descriptor matching the type</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/metadata/types/inheritance:GET"></a>
+<h2 class="resource-header">
+GET /metadata/types/inheritance</h2>
+<p></p>
+<div>Creates a map of the parent/child relationships of all the types known to the XL Deploy Type System.</div>
+<dl>
+<dt>Response body</dt>
+<dd>Map of String, Set - A Map of descriptor type name to list of children types.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

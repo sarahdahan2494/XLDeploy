@@ -1,0 +1,273 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>ServerService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>ServerService</h1>
+</div>
+<p>Services related to the operation of the XL Deploy server process.</p>
+<table class="parameter-table">
+<tr>
+<td>POST</td>
+<td>
+<a href="#/server/gc:POST">/server/gc</a>
+</td>
+<td>Runs the garbage collector on the repository.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/server/info:GET">/server/info</a>
+</td>
+<td>Returns information about the configuration of the sever.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/server/license/reload:POST">/server/license/reload</a>
+</td>
+<td>Reload and validate the license file from disk.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/server/logo/{productName}:GET">/server/logo/{productName}</a>
+</td>
+<td>Returns the logo from "conf" folder.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/server/logout:POST">/server/logout</a>
+</td>
+<td>Logs out the current user.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/server/maintenance/start:POST">/server/maintenance/start</a>
+</td>
+<td>Put server into MAINTENANCE mode (prepare for shutdown).</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/server/maintenance/stop:POST">/server/maintenance/stop</a>
+</td>
+<td>Put server into RUNNING mode.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/server/shutdown:POST">/server/shutdown</a>
+</td>
+<td>Stops the server process in a graceful manner.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/server/state:GET">/server/state</a>
+</td>
+<td>Returns the information about the current server state (is it RUNNING or in MAINTENANCE mode).</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>
+<a href="#/server/view-as:PUT">/server/view-as</a>
+</td>
+<td>View as user.</td>
+</tr>
+</table>
+<hr/>
+<a id="/server/gc:POST"></a>
+<h2 class="resource-header">
+POST /server/gc</h2>
+<p></p>
+<div>Runs the garbage collector on the repository.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>admin</code>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/server/info:GET"></a>
+<h2 class="resource-header">
+GET /server/info</h2>
+<p></p>
+<div>Returns information about the configuration of the sever. For example: version, plugins, and classpath.</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ServerInfo.html">ServerInfo</a>
+ - an information object.</dd>
+<dd>Content type: text/xml, application/xml</dd>
+</dl>
+<a id="/server/license/reload:POST"></a>
+<h2 class="resource-header">
+POST /server/license/reload</h2>
+<p></p>
+<div>Reload and validate the license file from disk.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>admin</code>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/server/logo/{productName}:GET"></a>
+<h2 class="resource-header">
+GET /server/logo/{productName}</h2>
+<p></p>
+<div>Returns the logo from "conf" folder.</div>
+<dl>
+<dt>Response body</dt>
+<dd>Response - stream with svg that represents logo</dd>
+<dd>Content type: text/xml, application/xml</dd>
+</dl>
+<a id="/server/logout:POST"></a>
+<h2 class="resource-header">
+POST /server/logout</h2>
+<p></p>
+<div>Logs out the current user.</div>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/server/maintenance/start:POST"></a>
+<h2 class="resource-header">
+POST /server/maintenance/start</h2>
+<p></p>
+<div>Put server into MAINTENANCE mode (prepare for shutdown).</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>admin</code>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/server/maintenance/stop:POST"></a>
+<h2 class="resource-header">
+POST /server/maintenance/stop</h2>
+<p></p>
+<div>Put server into RUNNING mode.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>admin</code>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/server/shutdown:POST"></a>
+<h2 class="resource-header">
+POST /server/shutdown</h2>
+<p></p>
+<div>Stops the server process in a graceful manner.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>admin</code>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Long - PID of the JVM process</dd>
+<dd>Content type: text/plain</dd>
+</dl>
+<a id="/server/state:GET"></a>
+<h2 class="resource-header">
+GET /server/state</h2>
+<p></p>
+<div>Returns the information about the current server state (is it RUNNING or in MAINTENANCE mode).</div>
+<dl>
+<dt>Response body</dt>
+<dd>ServerState - server state (RUNNING, MAINTENANCE)</dd>
+<dd>Content type: text/xml, application/xml</dd>
+</dl>
+<a id="/server/view-as:PUT"></a>
+<h2 class="resource-header">
+PUT /server/view-as</h2>
+<p></p>
+<div>View as user.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>admin</code>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

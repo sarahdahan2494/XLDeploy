@@ -1,0 +1,1 @@
+Hotfixes for XL Satellite can be installed in this directory.

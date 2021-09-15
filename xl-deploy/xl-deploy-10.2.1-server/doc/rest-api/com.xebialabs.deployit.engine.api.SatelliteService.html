@@ -1,0 +1,130 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>SatelliteService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>SatelliteService</h1>
+</div>
+<p>Services related to XL Satellites and hosts attached to them.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/satellite/hosts/count/{id:.+}:GET">/satellite/hosts/count/{id:.+}</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/satellite/hosts/{id:.+}:GET">/satellite/hosts/{id:.+}</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/satellite/info:GET">/satellite/info</a>
+</td>
+<td>Returns information about the configuration of the satellite.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/satellite/info/{id:.+}:GET">/satellite/info/{id:.+}</a>
+</td>
+<td>Returns information about the configuration of the satellite.</td>
+</tr>
+</table>
+<hr/>
+<a id="/satellite/hosts/count/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /satellite/hosts/count/{id:.+}</h2>
+<p></p>
+<div></div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.Integer.html">Integer</a>
+</dd>
+<dd>Content type: text/xml, application/xml</dd>
+</dl>
+<a id="/satellite/hosts/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /satellite/hosts/{id:.+}</h2>
+<p></p>
+<div></div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+</dd>
+<dd>Content type: text/xml, application/xml</dd>
+</dl>
+<a id="/satellite/info:GET"></a>
+<h2 class="resource-header">
+GET /satellite/info</h2>
+<p></p>
+<div>Returns information about the configuration of the satellite. For example: version.</div>
+<dl>
+<dt>Response body</dt>
+<dd>List of SatelliteInfo - an list of information objects.</dd>
+<dd>Content type: text/xml, application/xml</dd>
+</dl>
+<a id="/satellite/info/{id:.+}:GET"></a>
+<h2 class="resource-header">
+GET /satellite/info/{id:.+}</h2>
+<p></p>
+<div>Returns information about the configuration of the satellite. For example: version.</div>
+<dl>
+<dt>Response body</dt>
+<dd>SatelliteInfo - an information object.</dd>
+<dd>Content type: text/xml, application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

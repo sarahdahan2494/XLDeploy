@@ -1,0 +1,193 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>EnvironmentService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>EnvironmentService</h1>
+</div>
+<p>Retrieves information about Environments: which DeployedApplications and which Hosts are there in an environment?
+
+ A User must have READ permission on the environment to obtain the requested info.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/environment/{id:.+}/deployed-applications:GET">/environment/{id:.+}/deployed-applications</a>
+</td>
+<td>Finds DeployedApplications on an environment.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/environment/{id:.+}/infrastructure:GET">/environment/{id:.+}/infrastructure</a>
+</td>
+<td>Finds Hosts that take part in the specified environment.</td>
+</tr>
+</table>
+<hr/>
+<a id="/environment/{id:.+}/deployed-applications:GET"></a>
+<h2 class="resource-header">
+GET /environment/{id:.+}/deployed-applications</h2>
+<p></p>
+<div>Finds DeployedApplications on an environment. Optionally (a part of) an application name can be specified to narrow your
+ search results, e.g. specifying <i>deployedAppName=Depl</i> will find <i>XL Deploy</i></div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the environment ID to query</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedAppName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of the) deployed application name to look for.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td></td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+ - a list of <a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId.html">com.xebialabs.deployit.engine.api.dto.ConfigurationItemId</a>
+ objects corresponding to deployed
+ applications on the indicated environment</dd>
+<dd>Content type: </dd>
+</dl>
+<a id="/environment/{id:.+}/infrastructure:GET"></a>
+<h2 class="resource-header">
+GET /environment/{id:.+}/infrastructure</h2>
+<p></p>
+<div>Finds Hosts that take part in the specified environment. Will return only hosts that the user has READ permission on.
+ Optionally, (part of) a host name can be specified to narrow search results. A list of DeploymentInfo objects will be
+ returned detailing the host ID, the host Type, and when and by whom a deployment to this host has taken place.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>id</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the environment ID to query</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>name</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) (part of) the host name to look for</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td></td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of DeploymentInfo - a list of <b>com.xebialabs.deployit.engine.api.dto.DeploymentInfo</b>
+ objects</dd>
+<dd>Content type: </dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

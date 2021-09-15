@@ -1,0 +1,1147 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>TaskBlockService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>TaskBlockService</h1>
+</div>
+<p>Manages tasks with blocks on the XL Deploy Server.</p>
+<table class="parameter-table">
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2//force-cancel:POST">/tasks/v2//force-cancel</a>
+</td>
+<td>Force-cancels stopped tasks - do a best-effort cleanup, continuing on when steps of an always-run phase fail</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/current:GET">/tasks/v2/current</a>
+</td>
+<td>Returns the active tasks of the logged in user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/current/all:GET">/tasks/v2/current/all</a>
+</td>
+<td>Returns all active tasks for all users.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/current/all/satellite:GET">/tasks/v2/current/all/satellite</a>
+</td>
+<td>Returns all active satellite tasks for all users.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/current/satellite:GET">/tasks/v2/current/satellite</a>
+</td>
+<td>Returns all active satellite tasks the logged in user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/export:GET">/tasks/v2/export</a>
+</td>
+<td>Searches for tasks with detailed step information.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/query:GET">/tasks/v2/query</a>
+</td>
+<td>Searches for archived tasks without step information.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/{taskid}:GET">/tasks/v2/{taskid}</a>
+</td>
+<td>Returns a task by ID.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/tasks/v2/{taskid}:DELETE">/tasks/v2/{taskid}</a>
+</td>
+<td>Cancels a stopped task.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/abort:POST">/tasks/v2/{taskid}/abort</a>
+</td>
+<td>Aborts an active task.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/add-pause/{stepPath}:POST">/tasks/v2/{taskid}/add-pause/{stepPath}</a>
+</td>
+<td>Add a pause step at the specified position.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/archive:POST">/tasks/v2/{taskid}/archive</a>
+</td>
+<td>Archive an executed task.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/assign/{owner}:POST">/tasks/v2/{taskid}/assign/{owner}</a>
+</td>
+<td>Assigns a task to a different user.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/{taskid}/block/{blockPath}:GET">/tasks/v2/{taskid}/block/{blockPath}</a>
+</td>
+<td>Returns a block by ID.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/{taskid}/block/{blockPath}/step:GET">/tasks/v2/{taskid}/block/{blockPath}/step</a>
+</td>
+<td>Returns a block with steps by ID.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>
+<a href="#/tasks/v2/{taskid}/force:DELETE">/tasks/v2/{taskid}/force</a>
+</td>
+<td>Force-cancels a stopped task - do a best-effort cleanup, continuing on when steps of an always-run phase fail</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/schedule:POST">/tasks/v2/{taskid}/schedule</a>
+</td>
+<td>Schedules a task.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/skip:POST">/tasks/v2/{taskid}/skip</a>
+</td>
+<td>Indicates that one or more steps should be skipped.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/start:POST">/tasks/v2/{taskid}/start</a>
+</td>
+<td>Starts a task.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/tasks/v2/{taskid}/step/{stepPath}:GET">/tasks/v2/{taskid}/step/{stepPath}</a>
+</td>
+<td>Retrieves information about a step.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/stop:POST">/tasks/v2/{taskid}/stop</a>
+</td>
+<td>Gracefully stops an active task.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/takeover/{owner}:POST">/tasks/v2/{taskid}/takeover/{owner}</a>
+</td>
+<td>Takeover a task from the owner.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/tasks/v2/{taskid}/unskip:POST">/tasks/v2/{taskid}/unskip</a>
+</td>
+<td>Indicates that one or more steps should no longer be skipped, but executed.</td>
+</tr>
+</table>
+<hr/>
+<a id="/tasks/v2//force-cancel:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2//force-cancel</h2>
+<p></p>
+<div>Force-cancels stopped tasks - do a best-effort cleanup, continuing on when steps of an always-run phase fail</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>the IDs of the tasks</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/current:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/current</h2>
+<p></p>
+<div>Returns the active tasks of the logged in user.
+ By default returns full tasks, but summary mode should be preferred for performance.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>fetchMode</td>
+<td>FetchMode</td>
+<td>whether to strip block data for tasks or to do a full fetch</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock-List.html">List of TaskWithBlock</a>
+ - a list of tasks with blocks.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/current/all:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/current/all</h2>
+<p></p>
+<div>Returns all active tasks for all users. Only allowed for admin.
+ By default returns full tasks, but summary mode should be preferred for performance.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>fetchMode</td>
+<td>FetchMode</td>
+<td>whether to strip block data for tasks or to do a full fetch</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock-List.html">List of TaskWithBlock</a>
+ - a list of tasks with blocks.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/current/all/satellite:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/current/all/satellite</h2>
+<p></p>
+<div>Returns all active satellite tasks for all users. Only allowed for admin.
+ By default returns full tasks, but summary mode should be preferred for performance.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>satelliteId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the satellite where task will be executed</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>fetchMode</td>
+<td>FetchMode</td>
+<td>whether to strip block data for tasks or to do a full fetch</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock-List.html">List of TaskWithBlock</a>
+ - a list of tasks with blocks.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/current/satellite:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/current/satellite</h2>
+<p></p>
+<div>Returns all active satellite tasks the logged in user.
+ By default returns full tasks, but summary mode should be preferred for performance.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>satelliteId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the satellite where task will be executed</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>fetchMode</td>
+<td>FetchMode</td>
+<td>whether to strip block data for tasks or to do a full fetch</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock-List.html">List of TaskWithBlock</a>
+ - a list of tasks with blocks.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/export:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/export</h2>
+<p></p>
+<div>Searches for tasks with detailed step information.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>report#view</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begindate</td>
+<td>
+<a href="org.joda.time.LocalDate.html">LocalDate</a>
+</td>
+<td>The first day we want to see tasks from, or <code>null</code>
+ for no such limit.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>enddate</td>
+<td>
+<a href="org.joda.time.LocalDate.html">LocalDate</a>
+</td>
+<td>The last day we want to see tasks from, or <code>null</code>
+ for no such limit.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td><a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+ paging parameters to fetch tasks page by page.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Stream of TaskWithBlock - a list of tasks limited to maximum of value of <code>xl.rest.api.maxPageSize</code>
+ per page. response header X-Total-Count determines the total number of tasks.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/query:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/query</h2>
+<p></p>
+<div>Searches for archived tasks without step information.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>report#view</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begindate</td>
+<td>
+<a href="org.joda.time.LocalDate.html">LocalDate</a>
+</td>
+<td>The first day we want to see tasks from, or <code>null</code>
+ for no such limit.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>enddate</td>
+<td>
+<a href="org.joda.time.LocalDate.html">LocalDate</a>
+</td>
+<td>The last day we want to see tasks from, or <code>null</code>
+ for no such limit.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td><a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+ paging parameters to fetch tasks page by page.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Stream of TaskWithBlock - a list of tasks limited to maximum of value of <code>xl.rest.api.maxPageSize</code>
+ per page. response header X-Total-Count determines the total number of tasks.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/{taskid}</h2>
+<p></p>
+<div>Returns a task by ID.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock.html">TaskWithBlock</a>
+ - the task with blocks.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}:DELETE"></a>
+<h2 class="resource-header">
+DELETE /tasks/v2/{taskid}</h2>
+<p></p>
+<div>Cancels a stopped task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/abort:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/abort</h2>
+<p></p>
+<div>Aborts an active task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/add-pause/{stepPath}:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/add-pause/{stepPath}</h2>
+<p></p>
+<div>Add a pause step at the specified position.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>stepPath</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the path of the step</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.StepBlockState.html">StepBlockState</a>
+ - a task with full step information.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/archive:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/archive</h2>
+<p></p>
+<div>Archive an executed task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/assign/{owner}:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/assign/{owner}</h2>
+<p></p>
+<div>Assigns a task to a different user.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>task#assign</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>owner</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the name of the user that will be the new owner of the task.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock.html">TaskWithBlock</a>
+ - the task.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/block/{blockPath}:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/{taskid}/block/{blockPath}</h2>
+<p></p>
+<div>Returns a block by ID.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>blockPath</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the block</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.BlockState.html">BlockState</a>
+ - the block.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/block/{blockPath}/step:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/{taskid}/block/{blockPath}/step</h2>
+<p></p>
+<div>Returns a block with steps by ID.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>blockPath</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the block</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.StepBlockState.html">StepBlockState</a>
+ - the block with steps.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/force:DELETE"></a>
+<h2 class="resource-header">
+DELETE /tasks/v2/{taskid}/force</h2>
+<p></p>
+<div>Force-cancels a stopped task - do a best-effort cleanup, continuing on when steps of an always-run phase fail</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/schedule:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/schedule</h2>
+<p></p>
+<div>Schedules a task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>time</td>
+<td>
+<a href="org.joda.time.DateTime.html">DateTime</a>
+</td>
+<td>the local time (including the local timezone) when the task should be started by the server.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/skip:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/skip</h2>
+<p></p>
+<div>Indicates that one or more steps should be skipped.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>task#skip_step</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>the paths of the steps to skip</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock.html">TaskWithBlock</a>
+ - a task</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/start:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/start</h2>
+<p></p>
+<div>Starts a task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/step/{stepPath}:GET"></a>
+<h2 class="resource-header">
+GET /tasks/v2/{taskid}/step/{stepPath}</h2>
+<p></p>
+<div>Retrieves information about a step. The call returns a response with status code of 304 (Not Modified) if the step has not been modified since <code>ifModifiedSince</code>
+,
+ otherwise returns a status code of 200 (OK) and the XML containing a StepState.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>stepPath</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the path of the step in the block tree.</td>
+</tr>
+<tr>
+<td>
+<i>Header</i>
+</td>
+<td>If-Modified-Since</td>
+<td>
+<a href="org.joda.time.DateTime.html">DateTime</a>
+</td>
+<td>the if-modified-since date in <a href="http://datatracker.ietf.org/doc/rfc1123/">RFC 1123</a> (<a href="http://datatracker.ietf.org/doc/rfc822/">RFC 822</a> with 4-digit years) date format.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.StepState.html">StepState</a>
+ - XML containing a StepState if the step has not been modified since <code>ifModifiedSince</code>
+</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/stop:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/stop</h2>
+<p></p>
+<div>Gracefully stops an active task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>Available</code>
+ -  only to admin and owner of the task</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>
+<i>Empty</i>
+</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/takeover/{owner}:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/takeover/{owner}</h2>
+<p></p>
+<div>Takeover a task from the owner. This will re-assign the task to your logged in user.
+ This is the reverse of the <a href="com.xebialabs.deployit.engine.api.TaskBlockService.html">#assign(String, String)</a>
+ method, which allows you to re-assign
+ a task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>task#takeover</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task to take over</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>owner</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the current owner of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock.html">TaskWithBlock</a>
+ - the task you took over.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/tasks/v2/{taskid}/unskip:POST"></a>
+<h2 class="resource-header">
+POST /tasks/v2/{taskid}/unskip</h2>
+<p></p>
+<div>Indicates that one or more steps should no longer be skipped, but executed.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>task#skip_step</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>the paths of the steps to unskip</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.TaskWithBlock.html">TaskWithBlock</a>
+ - a task</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

@@ -1,0 +1,125 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>com.xebialabs.deployit.engine.api.execution.TaskState</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<!--
+
+    Copyright 2014-2019 XebiaLabs Inc. and its affiliates. Use is subject to terms of the enclosed Legal Notice.
+
+-->
+<h1>TaskState</h1>
+
+TaskState refers to a task object without detailed step information.
+A task is rendered in XML as a <code>&lt;task></code> element containing attributes and child elements. 
+See also <a href="com.xebialabs.deployit.engine.api.execution.TaskWithSteps.html">TaskWithSteps</a>, the version of <code>&lt;task></code> that also contains step infromation.
+
+<h2>Attributes</h2>
+
+<dl>
+<dt>id</dt>
+<dd>The ID of the task</dd>
+
+<dt>currentStep <i>(deprecated, now use currentSteps)</i></dt>
+<dd>For an active task, the step that is currently being executed.</dd>
+
+<dt>totalSteps</dt>
+<dd>The total number of steps in the task.</dd>
+
+<dt>failures</dt>
+<dd>The total number of failures in this task. It's possible that a step fails multiple times, so this value can be higher than the number of steps.</dd>
+
+<dt>state</dt>
+<dd>The current state of the task: <code>PENDING</code>, <code>QUEUED</code>, <code>EXECUTED</code>, <code>EXECUTING</code>, <code>STOPPED</code>, <code>DONE</code>, or <code>CANCELLED</code>.
+</dd>
+
+<dt>state2</dt>
+<dd>The current state of the task (to allow backward compatibility): <code>PENDING</code>, <code>QUEUED</code>, <code>EXECUTED</code>, <code>EXECUTING</code>, <code>FAILED</code>, <code>FAILING</code>, <code>STOPPED</code>, <code>STOPPING</code>, <code>ABORTED</code>, <code>ABORTING</code>, <code>DONE</code>, <code>CANCELLED</code>, or <code>SCHEDULED</code>.
+</dd>
+
+</dl>
+
+<h2>Child elements</h2>
+
+<dt>&lt;currentSteps></dt>
+<dd>For an active task, the steps that are currently being executed.</dd>
+
+<dl>
+<dt>&lt;description></dt>
+<dd>Textual description of the task.</dd>
+
+<dt>&lt;startDate></dt>
+<dd>The date when the task was started. Format: the <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 profile used in XML</a></dd>
+
+<dt>&lt;completionDate></dt>
+<dd>The date when the task was completed. Format: <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 profile used in XML</a></dd>
+
+<dt>&lt;metadata></dt>
+<dd>Contains entries from the metadata map. Each entry is an XML element, where the element name is the key of the entry, and the content is the value. 
+Currently supported: <code>application</code>, <code>environment</code> and <code>version</code></dd>
+</dl>
+
+<h2>Example</h2>
+<pre>
+&lt;task id="f9e864f9-cf07-44b6-93d8-f526515f87fa" currentStep="0" totalSteps="2" failures="0" state="PENDING">
+  &lt;description>InitialDeploymentTask&lt;/description>
+  &lt;startDate>2012-06-28T12:22:55.741+0200&lt;/startDate>
+  &lt;completionDate>2012-06-28T12:22:55.741+0200&lt;/completionDate>
+  &lt;currentSteps>
+    &lt;current>0&lt;/current>
+  &lt;/currentSteps>
+  &lt;metadata>
+    &lt;application>AnimalZoo-ear&lt;/application>
+    &lt;environment>0hostEnv0&lt;/environment>
+    &lt;version>1.0&lt;/version>
+  &lt;/metadata>
+&lt;/task>
+</pre>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

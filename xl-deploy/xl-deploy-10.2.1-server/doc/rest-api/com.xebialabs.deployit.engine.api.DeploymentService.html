@@ -1,0 +1,810 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>DeploymentService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>DeploymentService</h1>
+</div>
+<p>Deployment management</p>
+<table class="parameter-table">
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/:POST">/deployment/</a>
+</td>
+<td>Creates the deployment task.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/deployment/dictionary:GET">/deployment/dictionary</a>
+</td>
+<td>Get the effective dictionary for an environment, optionally filtered by application and container.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/deployment/exists:GET">/deployment/exists</a>
+</td>
+<td>Returns whether or not a <a href="com.xebialabs.deployit.plugin.api.udm.Version.html">udm.Version</a>
+ of the
+ <b>udm.Application</b>
+ that is passed in is already deployed to the
+ <b>udm.Environment</b>
+.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/generate/selected:POST">/deployment/generate/selected</a>
+</td>
+<td>Generates only the deployeds for the given deployables in the deployment.<span class="deprecated">(Deprecated)</span>
+</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/generate/selected/deployables:POST">/deployment/generate/selected/deployables</a>
+</td>
+<td>Generates only the deployeds for the given deployables in the deployment.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/generate/single:POST">/deployment/generate/single</a>
+</td>
+<td>Generates a deployed for the given deployable to the given container in the deployment.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/prepare/deployeds:POST">/deployment/prepare/deployeds</a>
+</td>
+<td>Prepares all the deployeds for the given deployment.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/deployment/prepare/initial:GET">/deployment/prepare/initial</a>
+</td>
+<td>Prepares an initial deployment.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/deployment/prepare/undeploy:GET">/deployment/prepare/undeploy</a>
+</td>
+<td>Prepares an undeployment.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/deployment/prepare/update:GET">/deployment/prepare/update</a>
+</td>
+<td>Prepares an update deployment.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/previewblock:POST">/deployment/previewblock</a>
+</td>
+<td>Calculate the plan that XL Deploy will execute for the given deployment.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/previewblock/{blockId}/{stepNr}:POST">/deployment/previewblock/{blockId}/{stepNr}</a>
+</td>
+<td>Get details on a step in a step block.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/rollback/{taskid}:POST">/deployment/rollback/{taskid}</a>
+</td>
+<td>Rollback a <code>STOPPED</code>
+ or <code>EXECUTED</code>
+ task.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/deployment/validate:POST">/deployment/validate</a>
+</td>
+<td>Validates the generated deployment.</td>
+</tr>
+</table>
+<hr/>
+<a id="/deployment/:POST"></a>
+<h2 class="resource-header">
+POST /deployment/</h2>
+<p></p>
+<div>Creates the deployment task.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+ -  for initial deployments</dd>
+<dd>
+<code>deploy#upgrade</code>
+ -  for upgrades</dd>
+<dd>
+<code>deploy#remove</code>
+ -  for undeployments</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+</td>
+<td>The fully prepared Deployment parameter object.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - a reference to a Task ID that can be executed by the <a href="com.xebialabs.deployit.engine.api.TaskService.html">TaskService</a>
+.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/dictionary:GET"></a>
+<h2 class="resource-header">
+GET /deployment/dictionary</h2>
+<p></p>
+<div>Get the effective dictionary for an environment, optionally filtered by application and container.
+
+ This will return the dictionary that is used when deploying to a specific environment. If an application/applicationVersion is passed, the dictionary is filtered to apply only to deployments of that application.
+ If a container is passed, the dictionary is filtered to apply only to deployeds pointing to that container in the environment.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>environment</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the environment</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>applicationVersion</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the applicationVersion (package) (optional, can be null)</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>application</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the application (optional, can be null). This parameter will be ignored if the applicationVersion is provided.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>container</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the container (optional, can be null)</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Map of String, String - the entries of the dictionary as it applies to a deployment to that environment</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/exists:GET"></a>
+<h2 class="resource-header">
+GET /deployment/exists</h2>
+<p></p>
+<div>Returns whether or not a <a href="com.xebialabs.deployit.plugin.api.udm.Version.html">udm.Version</a>
+ of the
+ <b>udm.Application</b>
+ that is passed in is already deployed to the
+ <b>udm.Environment</b>
+.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>application</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the <b>udm.Application</b>
+.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>environment</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the <b>udm.Environment</b>
+.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="boolean.html">boolean</a>
+ - <code>true</code> if there exists a deployed version of the application on the environment, <code>false</code> otherwise.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/generate/selected:POST"></a>
+<h2 class="resource-header">
+POST /deployment/generate/selected</h2>
+<p><span class="deprecated">(Deprecated)</span>
+</p>
+<div>Generates only the deployeds for the given deployables in the deployment.
+ <p/>
+ Try to generate deployeds from each of the deployables to all the matching <b>Containers</b>
+
+ in the <b>Environment</b>
+ of the Deployment parameter object.
+ <p/></div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployables</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>The list of IDs of deployables to generate the deployeds for.</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+</td>
+<td>The prepared Deployment parameter object</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - An updated Deployment parameter object.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/generate/selected/deployables:POST"></a>
+<h2 class="resource-header">
+POST /deployment/generate/selected/deployables</h2>
+<p></p>
+<div>Generates only the deployeds for the given deployables in the deployment.
+ <p/>
+ Try to generate deployeds from each of the deployables to all the matching <b>Containers</b>
+
+ in the <b>Environment</b>
+ of the Deployment parameter object.
+ <p/>
+ This request is same as <a href="com.xebialabs.deployit.engine.api.DeploymentService.html#/deployment/generate/selected:POST">/deployment/generate/selected</a> but does
+ not use URL query parameters avoiding it becoming too long.
+ <p/></div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.SelectedDeployment.html">SelectedDeployment</a>
+</td>
+<td>The prepared Deployment parameter object with list of IDs of deployables to generate the deployeds for.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - An updated Deployment parameter object.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/generate/single:POST"></a>
+<h2 class="resource-header">
+POST /deployment/generate/single</h2>
+<p></p>
+<div>Generates a deployed for the given deployable to the given container in the deployment.
+ <p/>
+ The deployed should be of the given type (which is optional)
+ <p/></div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployable</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the deployable to generate a deployed for</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>container</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the container to generate a deployed to</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedtype</td>
+<td>
+<a href="com.xebialabs.deployit.plugin.api.reflect.Type.html">Type</a>
+</td>
+<td>(Optional) The type of the deployed to generate</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+</td>
+<td>The prepared Deployment parameter object</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - An updated Deployment parameter object.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/prepare/deployeds:POST"></a>
+<h2 class="resource-header">
+POST /deployment/prepare/deployeds</h2>
+<p></p>
+<div>Prepares all the deployeds for the given deployment.
+
+ This will keep any previous deployeds present in the deployment object that are already present, unless they cannot be deployed with regards to their tags.
+ It will add all the deployeds that are still missing.
+ <p/>
+ Also filters out the deployeds that do not have any source attached anymore (deployables that were previously present).
+ <p/></div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+</td>
+<td>The prepared Deployment parameter object</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - An updated Deployment parameter object.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/prepare/initial:GET"></a>
+<h2 class="resource-header">
+GET /deployment/prepare/initial</h2>
+<p></p>
+<div>Prepares an initial deployment.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>version</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the <a href="com.xebialabs.deployit.plugin.api.udm.Version.html">udm.Version</a>
+ that is the source of the deployment.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>environment</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the <b>udm.Environment</b>
+ that is the target of the deployment.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - A new <code>Deployment</code> object to which you can add deployeds.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/prepare/undeploy:GET"></a>
+<h2 class="resource-header">
+GET /deployment/prepare/undeploy</h2>
+<p></p>
+<div>Prepares an undeployment.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#undeploy</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedApplication</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the <b>udm.DeployedApplication</b>
+ that is to be undeployed.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - A new <code>Deployment</code> object which contains no deployeds (ie. all deployeds of the previous deployment will be deleted).</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/prepare/update:GET"></a>
+<h2 class="resource-header">
+GET /deployment/prepare/update</h2>
+<p></p>
+<div>Prepares an update deployment.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#upgrade</code>
+</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>version</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the new <a href="com.xebialabs.deployit.plugin.api.udm.Version.html">udm.Version</a>
+ that is the source of the deployment.</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>deployedApplication</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The ID of the <b>udm.DeployedApplication</b>
+ that is to be updated.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - A new <code>Deployment</code> object which contains the updated deployeds.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/previewblock:POST"></a>
+<h2 class="resource-header">
+POST /deployment/previewblock</h2>
+<p></p>
+<div>Calculate the plan that XL Deploy will execute for the given deployment. A plan consists of one or more nested
+ blocks. Blocks can be sequential, parallel, or a block containing steps.
+
+ <em>Note:</em> The block returned is not a task yet, and as such can not be skipped or re-ordered.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+ -  for initial deployments</dd>
+<dd>
+<code>deploy#upgrade</code>
+ -  for upgrades</dd>
+<dd>
+<code>deploy#remove</code>
+ -  for undeployments</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+</td>
+<td>The deployment to generate the block for.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>TaskPreviewBlock - The block.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/previewblock/{blockId}/{stepNr}:POST"></a>
+<h2 class="resource-header">
+POST /deployment/previewblock/{blockId}/{stepNr}</h2>
+<p></p>
+<div>Get details on a step in a step block.</div>
+<dl>
+<dt>Permissions</dt>
+<dd>
+<code>deploy#initial</code>
+ -  for initial deployments</dd>
+<dd>
+<code>deploy#upgrade</code>
+ -  for upgrades</dd>
+<dd>
+<code>deploy#remove</code>
+ -  for undeployments</dd>
+<dd>
+<code>task#preview_step</code>
+ -  to see all details about a step</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+</td>
+<td>The deployment to generate the block for.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>blockId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>The id of the step block to query the steps for.</td>
+</tr>
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>stepNr</td>
+<td>
+<a href="int.html">int</a>
+</td>
+<td>The number of the step to retrieve.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.execution.StepState.html">StepState</a>
+ - The step.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/rollback/{taskid}:POST"></a>
+<h2 class="resource-header">
+POST /deployment/rollback/{taskid}</h2>
+<p></p>
+<div>Rollback a <code>STOPPED</code>
+ or <code>EXECUTED</code>
+ task. Reverting the deployment to the previous state. The task
+ will be set to <code>CANCELLED</code>
+ when it was <code>STOPPED</code>
+, and <code>DONE</code>
+ when it was <code>EXECUTED</code>
+.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Path</i>
+</td>
+<td>taskid</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>the ID of the task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - the ID of the new task.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/deployment/validate:POST"></a>
+<h2 class="resource-header">
+POST /deployment/validate</h2>
+<p></p>
+<div>Validates the generated deployment.
+ <p>
+ Checks whether all the deployeds that are in the deployment are valid.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+</td>
+<td>The deployment to validate.</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.Deployment.html">Deployment</a>
+ - The validated deployment.</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

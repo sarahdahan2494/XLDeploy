@@ -1,0 +1,828 @@
+<html>
+<head>
+<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+<title>ReportService</title>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link rel="stylesheet" type="text/css" href="restdoc.css"/>
+</head>
+<body id="top-toc">
+<div id="page"><!-- main page start -->
+  <div id="Main_container"><!--main container start here-->
+    <div id="header"><!--header start here-->
+      <div class="cleardiv"></div>
+      <div id="menubar"><!--Navigation start here-->
+        <span class="logo">
+          <a href="/">
+            <img src="/images/logos/xebialabs-standard.jpg" alt="XebiaLabs" height="75" border="0"/>
+          </a>
+        </span>
+      </div>
+
+    </div>  <!--header ends here-->
+    <div class="cleardiv"></div>
+    <div id="main_white_bg" style="min-height:400px;"><!-- main content start -->
+
+      <div class="rightcol"><!--right column start here-->
+        <ol id="toc">
+        </ol>
+      </div><!--right column ends here-->
+
+      <div class="leftcol"><!--left column start here-->
+<div class="manual-title">
+<h1>ReportService</h1>
+</div>
+<p>Retrieves reports for Deployment or Control Tasks A User must have a REPORT_VIEW permission to be able to run these
+ operations. A User must have at least READ permission on the environment or application for Deployment Task report to
+ contain data for them. A User must have at least CONTROLTASK_EXECUTE permission on target CI for Control Task report
+ to contain data for them.</p>
+<table class="parameter-table">
+<tr>
+<td>GET</td>
+<td>
+<a href="#/report/app-env-status:GET">/report/app-env-status</a>
+</td>
+<td>Fetch number of deployments per application and environment.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/report/applications:GET">/report/applications</a>
+</td>
+<td>Find all Application CIs availble in reporting for given user This will include both names of existing CIs user has permissions for
+ and a list of CIs that are existing in reports but are deleted or renamed.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/report/controltasks:POST">/report/controltasks</a>
+</td>
+<td>Find all archived Control Tasks, optionally filtered by parameters.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/report/download/audit:POST">/report/download/audit</a>
+</td>
+<td>Export audit report containing global and folder permissions of roles</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/report/download/audit/v2:POST">/report/download/audit/v2</a>
+</td>
+<td>Export audit report containing global and folder permissions of roles</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/report/download/controltasks:POST">/report/download/controltasks</a>
+</td>
+<td>Find all archived Control Tasks, optionally filtered by parameters.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/report/download/tasks:POST">/report/download/tasks</a>
+</td>
+<td>Find all archived Deployment Tasks, optionally filtered by parameters.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/report/environments:GET">/report/environments</a>
+</td>
+<td>Find all Environment CIs availble in reporting for given user.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/report/preview/audit:POST">/report/preview/audit</a>
+</td>
+<td>Generates preview audit report for local and global permissions.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>
+<a href="#/report/status-overview:GET">/report/status-overview</a>
+</td>
+<td>Fetch overall number of deployments per deployment state.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>
+<a href="#/report/tasks:POST">/report/tasks</a>
+</td>
+<td>Find all archived Deployment Tasks, optionally filtered by parameters.</td>
+</tr>
+</table>
+<hr/>
+<a id="/report/app-env-status:GET"></a>
+<h2 class="resource-header">
+GET /report/app-env-status</h2>
+<p></p>
+<div>Fetch number of deployments per application and environment.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begin</td>
+<td>Date</td>
+<td>filter by time interval beginning with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>end</td>
+<td>Date</td>
+<td>filter by time interval ending with date</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>List of AppEnvStatusReport - a list of <b>AppEnvStatusReport</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/applications:GET"></a>
+<h2 class="resource-header">
+GET /report/applications</h2>
+<p></p>
+<div>Find all Application CIs availble in reporting for given user This will include both names of existing CIs user has permissions for
+ and a list of CIs that are existing in reports but are deleted or renamed. Deleted CIs are visible only to user with ADMIN rights.</div>
+<dl>
+<dt>Headers</dt>
+<dd>
+<i>Accept</i>
+ application/json</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+ - a list of <a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId.html">com.xebialabs.deployit.engine.api.dto.ConfigurationItemId</a>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/controltasks:POST"></a>
+<h2 class="resource-header">
+POST /report/controltasks</h2>
+<p></p>
+<div>Find all archived Control Tasks, optionally filtered by parameters.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>users</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter tasks belonging to users</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>states</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter on tasks in states</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>taskName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter on task name</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begin</td>
+<td>Date</td>
+<td>(Optional) filter by time interval beginning with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>end</td>
+<td>Date</td>
+<td>(Optional) filter by time interval ending with date</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>List of Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>Set of String</td>
+<td>filter by list of target CIs</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>worker</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter only specified workers</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>fetchMode</td>
+<td>FetchMode</td>
+<td>toggle to fetch FULL task with blocks or just task SUMMARY</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>taskId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter by task id</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Stream of ControlTaskReportLine - a list of <b>ControlTaskReportLine</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/download/audit:POST"></a>
+<h2 class="resource-header">
+POST /report/download/audit</h2>
+<p></p>
+<div>Export audit report containing global and folder permissions of roles</div>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - a {java.util.String} containing audit report</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/download/audit/v2:POST"></a>
+<h2 class="resource-header">
+POST /report/download/audit/v2</h2>
+<p></p>
+<div>Export audit report containing global and folder permissions of roles</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>folders</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>Which folders in audit report</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - a {java.util.String} containing audit report</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/download/controltasks:POST"></a>
+<h2 class="resource-header">
+POST /report/download/controltasks</h2>
+<p></p>
+<div>Find all archived Control Tasks, optionally filtered by parameters.</div>
+<dl>
+<dt>Headers</dt>
+<dd>
+<i>Content-Type</i>
+ application/json</dd>
+<dd>
+<i>Cookie</i>
+ &lt;Cookie Value&gt;</dd>
+<dd>
+<i>X-XSRF-TOKEN</i>
+ &lt;X-XSRF-TOKEN&gt;</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>users</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter tasks belonging to users</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>states</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter on tasks in states</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>taskName</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter on task name</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begin</td>
+<td>Date</td>
+<td>(Optional) filter by time interval beginning with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>end</td>
+<td>Date</td>
+<td>(Optional) filter by time interval ending with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>List of Ordering</td>
+<td>(Optional) Which ordering to use when listing results</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>worker</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter only specified workers</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>taskId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter by task id</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>Set of String</td>
+<td>filter by list of target CIs</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - a {java.util.String} containing CSV report</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/download/tasks:POST"></a>
+<h2 class="resource-header">
+POST /report/download/tasks</h2>
+<p></p>
+<div>Find all archived Deployment Tasks, optionally filtered by parameters.</div>
+<dl>
+<dt>Headers</dt>
+<dd>
+<i>Content-Type</i>
+ application/json</dd>
+<dd>
+<i>Cookie</i>
+ &lt;Cookie Value&gt;</dd>
+<dd>
+<i>X-XSRF-TOKEN</i>
+ &lt;X-XSRF-TOKEN&gt;</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begin</td>
+<td>Date</td>
+<td>filter by time interval beginning with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>end</td>
+<td>Date</td>
+<td>filter by time interval ending with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>List of Ordering</td>
+<td>(Optional) Which ordering to use when listing results</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>users</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter tasks belonging to users</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>states</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter on tasks in states</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>types</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter on tasks types</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>taskId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter task with exact taskId</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>onlySuccessful</td>
+<td>
+<a href="boolean.html">boolean</a>
+</td>
+<td>Deprecated use taskStates instead</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>worker</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter only specified workers</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+</td>
+<td>filter by list of CIs - environment and application correlated to the Deployment task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="java.lang.String.html">String</a>
+ - a {java.util.String} containing CSV report</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/environments:GET"></a>
+<h2 class="resource-header">
+GET /report/environments</h2>
+<p></p>
+<div>Find all Environment CIs availble in reporting for given user. This will include both names of existing CIs user has permissions for
+ and a list of CIs that are existing in reports but are deleted or renamed. Deleted CIs are visible only to user with ADMIN rights.</div>
+<dl>
+<dt>Headers</dt>
+<dd>
+<i>Accept</i>
+ application/json</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd><a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+ - a list of <a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId.html">com.xebialabs.deployit.engine.api.dto.ConfigurationItemId</a>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/preview/audit:POST"></a>
+<h2 class="resource-header">
+POST /report/preview/audit</h2>
+<p></p>
+<div>Generates preview audit report for local and global permissions.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>folders</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>Which folders in audit report</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>List of Ordering</td>
+<td>Which ordering to use when listing results</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>Which page and how many results per page to retrieve</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Stream of AuditPreviewRow - a list of <b>AuditPreviewRow</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/status-overview:GET"></a>
+<h2 class="resource-header">
+GET /report/status-overview</h2>
+<p></p>
+<div>Fetch overall number of deployments per deployment state.</div>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begin</td>
+<td>Date</td>
+<td>filter by time interval beginning with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>end</td>
+<td>Date</td>
+<td>filter by time interval ending with date</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>DeploymentsStatusOverview - a <b>DeploymentsStatusOverview</b>
+ object</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+<a id="/report/tasks:POST"></a>
+<h2 class="resource-header">
+POST /report/tasks</h2>
+<p></p>
+<div>Find all archived Deployment Tasks, optionally filtered by parameters.</div>
+<dl>
+<dt>Headers</dt>
+<dd>
+<i>Content-Type</i>
+ application/json</dd>
+<dd>
+<i>Cookie</i>
+ &lt;Cookie Value&gt;</dd>
+<dd>
+<i>X-XSRF-TOKEN</i>
+ &lt;X-XSRF-TOKEN&gt;</dd>
+</dl>
+<dl>
+<dt>Parameters</dt>
+<dd>
+<table class="parameter-table">
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>taskId</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter task with exact taskId</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>onlySuccessful</td>
+<td>
+<a href="boolean.html">boolean</a>
+</td>
+<td>Deprecated use taskStates instead</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>users</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter tasks belonging to users</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>states</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter on tasks in states</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>types</td>
+<td>
+<a href="java.lang.String-List.html">List of String</a>
+</td>
+<td>(Optional) filter on tasks types</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>begin</td>
+<td>Date</td>
+<td>filter by time interval beginning with date</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>end</td>
+<td>Date</td>
+<td>filter by time interval ending with date</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.Paging.html">Paging</a>
+</td>
+<td>(Optional) Which page and how many results per page to retrieve</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>order</td>
+<td>List of Ordering</td>
+<td>(Optional) Which ordering to use when listing results</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>fetchMode</td>
+<td>FetchMode</td>
+<td>(Optional) toggle to fetch FULL task with blocks or just task SUMMARY</td>
+</tr>
+<tr>
+<td>
+<i>Query</i>
+</td>
+<td>worker</td>
+<td>
+<a href="java.lang.String.html">String</a>
+</td>
+<td>(Optional) filter only specified workers</td>
+</tr>
+<tr>
+<td>
+<i>Request&nbsp;body</i>
+</td>
+<td>application/xml</td>
+<td>
+<a href="com.xebialabs.deployit.engine.api.dto.ConfigurationItemId-List.html">List of ConfigurationItemId</a>
+</td>
+<td>filter by list of CIs - environment and application correlated to the Deployment task</td>
+</tr>
+</table>
+</dd>
+</dl>
+<dl>
+<dt>Response body</dt>
+<dd>Stream of DeploymentTaskReportLine - a list of <b>DeploymentTaskReportLine</b>
+ objects</dd>
+<dd>Content type: application/xml</dd>
+</dl>
+</div><!--left column ends here-->
+
+<div class="cleardiv"></div>
+<div class="push"></div>
+</div>  <!-- main content Ends -->
+</div><!--main container start here-->
+<div class="cleardiv"></div>
+<div class="footer"><!--footer section Start here-->
+<div class="footerbottom">
+<div id="block-block-5" class="clear-block block block-block first">
+  <div class="content">
+<div>
+    <span class="footer-msg">Copyright <script type="text/javascript">document.write(new Date().getFullYear());</script>. XebiaLabs, Inc. All rights reserved</span>
+	</div>
+  </div>
+</div>
+</div>
+</div><!--footer section ends here-->
+
+</div><!-- main page ends -->
+</body>
+</html>
+

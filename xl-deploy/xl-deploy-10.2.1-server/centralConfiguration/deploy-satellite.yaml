@@ -1,0 +1,12 @@
+deploy.satellite:
+  enabled: false
+  streaming:
+    max-uploads: 10
+    upload-attempts: 3
+  timeout:
+    info: "10 seconds"
+    ping: "5 seconds"
+    streaming: "10 seconds"
+    remoteAsk: "60 seconds"
+    upload:
+      idle: "30 seconds"
